@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Signup {% endblock title %}
+
+{% block breadcrumb %} 
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-blue">Home </a>
+	<span class="text-black"> / Signup</span>
+{% endblock breadcrumb %}
+
+{% block content %}
+	<div class="position-relative">
+		<div class="bg-user-img">
+			<div class="container">
+				<div class="row m-auto border-gray pr-0 user-login-section">
+					<div class="col-lg-4 pr-0 col-md-5 col-sm-5 pl-sm-0 col-6 d-sm-block d-none">
+						<div class="hello-friend-block">
+							<div class="quarterCircleBottomLeft"></div>
+							<div class="halfCircleBottom"></div>
+							<div class="welcome-block mb-3 pt-md-5">
+								<h2 class="font-weight-bold">Hello, Friend!</h2>
+								<p class="w-100">By Creating Your Account Your Are Agree To Our Privacy And Policy</p>
+								<a href="{% url 'login' %}" class="text-decoration-none btn btn-outline-rose">Login</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7 m-auto col-md-6 col-sm-7 col-11 py-3">
+						<h3 class="text-blue font-weight-bold text-center">Create Account</h3>					
+						<form method="post" novalidate>
+							{% csrf_token %}
+							{% include 'includes/form.html' %}
+							<button type="submit" class="btn btn-rose">Signup</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
