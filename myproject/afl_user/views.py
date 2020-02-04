@@ -9,19 +9,23 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView
 
+from django.contrib import messages
+
 # @login_required
 def home(request):
-	return render(request, 'home.html')
+	msg = messages.get_messages(request)		
+	return render(request, 'home.html', {'messages':msg})
 
 def signup(request):
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
-		if form.is_valid():
+		if form.is_valid():			
 			user = form.save()
+			messages.success(request, "login successfully")			
 			auth_login(request,user)
-			return redirect('home')
+			return redirect('home')		
 	else:
-		form = SignUpForm()		
+		form = SignUpForm()	
 	return render(request, 'signup.html', {'form':form})	
 
 @method_decorator(login_required, name='dispatch')

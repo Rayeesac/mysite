@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'afl_user',
-    'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +150,9 @@ LOGIN_REDIRECT_URL = 'home'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_URL = 'user/login'
+
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_LEVEL = message_constants.DEBUG
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'

@@ -4,12 +4,15 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock title %}</title>
+	<link rel="shortcut icon" href="{% static 'img/favicon.ico' type='image/x-icon' %}">
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/custom_class.css' %}">
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-	<link rel="shortcut icon" href="{% static 'img/favicon.ico' type='image/x-icon' %}">
+	<link rel="stylesheet" href="{% static 'css/toastr.css' %}">
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/developer.js' %}"></script>
+	<script src="{% static 'js/toastr.js' %}"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body class="bg-gray-light"> 
@@ -62,4 +65,26 @@
 
 	{% endblock body %}
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		toastr.options = {
+		  "closeButton": true,
+		  "debug": false,
+		  "newestOnTop": false,
+		  "progressBar": true,
+		  "positionClass": "toast-top-right",
+		  "preventDuplicates": true,
+		  "onclick": null,
+		  "showDuration": "300",
+		  "hideDuration": "1000",
+		  "timeOut": "5000",
+		  "extendedTimeOut": "1000",
+		  "showEasing": "swing",
+		  "hideEasing": "linear",
+		  "showMethod": "fadeIn",
+		  "hideMethod": "fadeOut"
+		}
+		toastr.info('Are you the 6 fingered man?')
+	});
+</script>
 </html>
