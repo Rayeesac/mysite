@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login 
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
 from django.contrib.auth.models import User
@@ -9,24 +8,65 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView
 
+from django.contrib.auth.forms import AuthenticationForm as LoginForm
 from django.contrib import messages
 
-# @login_required
-def home(request):
-	msg = messages.get_messages(request)		
-	return render(request, 'home.html', {'messages':msg})
+from django.contrib.auth.forms import PasswordResetForm
+from django.views.generic.edit import FormView
+from django.views.decorators.csrf import csrf_protect
+
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+########### Print Function ###############
+
+from django.conf import settings
+import builtins
+from pprint import pprint
+def pp(*args):
+	if settings.DEBUG:
+		for arg in args:
+			pprint(arg)
+		pass
+builtins.pp = pp 
+
+#####################################
+
+def home(request):	
+	return render(request, 'home.html')
+
+############ SignUp #################
 
 def signup(request):
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
 		if form.is_valid():			
 			user = form.save()
-			messages.success(request, "login successfully")			
+			messages.add_message(request,messages.SUCCESS, 'Registered successfully.!')		
 			auth_login(request,user)
-			return redirect('home')		
+			return redirect('home')
+		else:
+			messages.add_message(request,messages.ERROR, "Registeration failed..!!")	
 	else:
-		form = SignUpForm()	
+		form = SignUpForm()		
 	return render(request, 'signup.html', {'form':form})	
+
+############ LogIn #################
+
+def login(request):
+	if request.method == 'POST':
+		form = LoginForm(data=request.POST)
+		if form.is_valid():
+			user = form.get_user()
+			auth_login(request, user)
+			messages.add_message(request,messages.SUCCESS, 'Login Success.!')
+			return redirect('home')
+		else:
+			messages.add_message(request,messages.ERROR, 'Invaild Login.!')            
+	else:
+		form = LoginForm()
+	return render(request, 'login.html', {'form': form})
+
+############ Update Account #################
 
 @method_decorator(login_required, name='dispatch')
 class UserUpdateView(UpdateView):
@@ -37,3 +77,105 @@ class UserUpdateView(UpdateView):
 
     def get_object(self):
         return self.request.user	
+
+########## check email ##############
+
+def email_present(email):
+    if User.objects.filter(email=email).exists():
+        return True
+    return False
+
+########## password context ######### 
+
+class PasswordContext:
+    extra_context = None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'title': self.title,
+            **(self.extra_context or {})
+        })
+        return context
+
+########### Password Reset ##################        
+
+class PasswordResetView(PasswordContext, FormView):
+    template_name = 'password_reset.html'
+    email_template_name = 'password_reset_email.html'
+    subject_template_name = 'password_reset_subject.txt'
+    form_class = PasswordResetForm
+    success_url = reverse_lazy('password_reset_done')
+    title = ('Password reset')
+
+    @method_decorator(csrf_protect)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+    	    
+    def form_valid(self, form):
+        opts = {
+            'use_https': self.request.is_secure(),
+            'email_template_name': self.email_template_name,
+            'subject_template_name': self.subject_template_name,
+            'request': self.request,
+        }
+        form_email = form.cleaned_data['email']
+        pp(form_email)
+        email_status = email_present(form_email)
+        pp(email_status)
+        if email_status:
+        	messages.add_message(opts['request'],messages.INFO,"Please check your email")
+        	form.save(**opts)
+        	return super().form_valid(form)        	
+        else:
+        	messages.add_message(opts['request'],messages.ERROR,"Enter Registered Email")
+        	return redirect('password_reset')
+
+############# Change Password ###############
+
+# @login_required
+# def password_change(request):
+# 	# form = form_class(request.POST or None)
+
+# 	pp("request.user")
+# 	pp(request.user)
+# 	if request.method == 'POST':
+# 		form=PasswordChangeForm(request.POST or None,data=request.POST)
+# 		pp("form")
+# 		pp(form)
+# 		pp("request.POST")
+# 		pp(request.POST)
+# 		# form = form(data=request.POST)
+# 		if form.is_valid():
+# 			pp(" ******** valid **********")
+# 			form.save()
+# 			messages.add_message(request,messages.SUCCESS, 'Password Changed Successfully.!')
+# 			return redirect('password_reset_done')
+# 		else:
+# 			pp(" ******** not valid **********")
+# 			pp("ERROR==>",form.errors)
+# 			messages.add_message(request,messages.ERROR, 'Please Try Again.!')
+# 	else:
+# 		form=PasswordChangeForm(request.POST or None)
+
+# 		# form = form_class(data=request.POST,instance = request.user.pk)
+# 	return render(request, 'password_change.html',{ 'form':form })
+
+# 	def __str__(self):
+# 		return request.user
+
+
+def password_change(request):
+	if request.method == 'POST':
+		form = PasswordChangeForm(user=request.user, data=request.POST)
+		if form.is_valid():
+			form.save()
+			update_session_auth_hash(request, form.user)
+			messages.add_message(request,messages.SUCCESS,"Password Changed Successfully")
+			return redirect('password_change_done')
+		else:
+			messages.add_message(request,messages.ERROR,"Please Try Again")
+	else:
+		form = PasswordChangeForm(user=request.user)
+
+	return render(request, 'password_change.html', {'form':form})

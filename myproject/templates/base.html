@@ -4,16 +4,23 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock title %}</title>
+
+	<!-- Favicon -->
 	<link rel="shortcut icon" href="{% static 'img/favicon.ico' type='image/x-icon' %}">
+
+	<!-- Stylesheet -->
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/custom_class.css' %}">
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 	<link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+
+	<!-- Javascript -->
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<script src="{% static 'js/popper.min.js' %}"></script>
 	<script src="{% static 'js/developer.js' %}"></script>
 	<script src="{% static 'js/toastr.js' %}"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
 </head>
 <body class="bg-gray-light"> 
 
@@ -59,32 +66,19 @@
 				{% block breadcrumb %}{% endblock breadcrumb %}
 			</div>
 		</div>
+		
+		<!-- Message Block -->
+		{% block messages %}
+		   {% include "includes/message.html" with messages=messages %}
+		{% endblock %}		
 
 		<!-- Content Block -->
 		{% block content %}{% endblock content %}
 
-	{% endblock body %}
+		{% block javascript %}
+		{% endblock %}
+	{% endblock %}
+
 </body>
-<script type="text/javascript">
-	$(document).ready(function(){
-		toastr.options = {
-		  "closeButton": true,
-		  "debug": false,
-		  "newestOnTop": false,
-		  "progressBar": true,
-		  "positionClass": "toast-top-right",
-		  "preventDuplicates": true,
-		  "onclick": null,
-		  "showDuration": "300",
-		  "hideDuration": "1000",
-		  "timeOut": "5000",
-		  "extendedTimeOut": "1000",
-		  "showEasing": "swing",
-		  "hideEasing": "linear",
-		  "showMethod": "fadeIn",
-		  "hideMethod": "fadeOut"
-		}
-		toastr.info('Are you the 6 fingered man?')
-	});
-</script>
+
 </html>

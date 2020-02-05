@@ -76,26 +76,39 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # postgresql
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'Mysite',
-#         'USER': 'postgres',
-#         'PASSWORD': 'epsadmin',
-#         'HOST': 'localhost',
-#         'PORT':'5432',
-#     }
-# }
+
+#Database for eps89
+######################
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Mysite',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'USER': 'postgres',
+        'PASSWORD': 'epsadmin',
         'HOST': 'localhost',
         'PORT':'5432',
     }
 }
+
+######################
+
+
+#rac-thinkpad
+######################
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Mysite',
+#         'USER': 'root',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT':'5432',
+#     }
+# }
+
+######################
 
 # mysql
 # DATABASES = {
@@ -164,5 +177,3 @@ LOGIN_URL = 'user/login'
 from django.contrib.messages import constants as message_constants
 
 MESSAGE_LEVEL = message_constants.DEBUG
-
-MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
