@@ -4,7 +4,8 @@
 .font-weight-semi-bold{font-weight: 600 !important;}
 .text-blue{color: #92328d !important;}
 .border-radius-30px{border-radius: 30px !important;}
-.bg-gray-light{background:#f9f0f0;}
+.bg-light{background:#ececec !important;}
+.bg-gray-light{background:#f9f0f0 !important;}
 .bg-gray-light-medium{background:#e8dcdc;}
 .btn-outline-rose{border: 1px solid #eee;border-radius: 30px;color:#eee;padding: 8px 45px;font-weight: 600;}
 .btn-outline-rose:hover{color: #222;}

@@ -17,21 +17,26 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from afl_user import views
-from afl_user import views as accounts_views
+from afl_common import views as common_views
+from afl_user import views as user_views
 from django.contrib.auth import views as auth_views
+
+# from django.conf.urls import handler404,handler500
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name="home"),
-    path('user/register',accounts_views.signup,name="signup"),
-    path('user/', accounts_views.login,name="login"),
+    path('user/register',user_views.signup.as_view(),name="signup"),
+    path('user/', user_views.login,name="login"),
     path('user/logout',auth_views.LogoutView.as_view(), name='logout'),
-    path('reset/',accounts_views.PasswordResetView.as_view(),name='password_reset'),
+    path('reset/',user_views.PasswordResetView.as_view(),name='password_reset'),
 	path('reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),name='password_reset_done'),
 	url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'),name='password_reset_confirm'),
-	path('reset/complete/',auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),name='password_reset_complete'),
-	# path('settings/password/', auth_views.PasswordChangeView.as_view(template_name='password_change.html'),name='password_change'),
-    path('settings/password/', accounts_views.password_change,name='password_change'),
+	path('reset/complete/',auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),name='password_reset_complete'),	
+    path('settings/password/', user_views.password_change,name='password_change'),
 	path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),name='password_change_done'),
-	path('settings/account/', accounts_views.UserUpdateView.as_view(), name='my_account'),
+	path('settings/account/', user_views.UserUpdateView.as_view(), name='my_account'),
+    path('error',views.error_view,name='error_view')
 ]

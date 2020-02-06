@@ -25,7 +25,7 @@ SECRET_KEY = '=z=_^h^f*6v+ikgiv3(_5rr(i)4q&7^q=t-fnc3d*su7zc7zhv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','10.0.0.89']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'afl_user',
+    'afl_common',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DEBUG = True
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
