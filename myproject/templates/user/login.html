@@ -1,0 +1,45 @@
+{% extends 'user/base.html' %}
+
+{% block title %} Login {% endblock title %}
+
+{% block banner %}
+	<h2 class="text-white text-uppercase">Log In</h2>
+	<p class="text-white">Please login to start your session..</p>
+{% endblock %}
+
+{% block breadcrumb %}
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-warning">Home </a>
+	<span class="text-white">/ Login</span>
+{% endblock breadcrumb %}
+
+{% block content %}
+	<div class="position-relative">
+		<div class="bg-user-img">
+			<div class="container">
+				<div class="row m-auto border-gray pr-0 user-login-section">
+					<div class="col-lg-7 m-auto col-md-6 col-sm-7 col-11 py-sm-0 py-3">
+						<h3 class="text-blue font-weight-bold text-center">User Login</h3>
+						<form method="post" novalidate>
+							{% csrf_token %}
+							{% include 'includes/form.html' %}
+							<button type="submit" class="btn btn-rose float-md-none float-left mr-2 mr-xs-3">Login</button>
+							<a href="{% url 'password_reset' %}" class="text-muted text-decoration-none float-md-right pt-sm-3 pt-2 float-left">Forgot your password?</a>
+						</form>
+					</div>
+					<div class="col-lg-4 pr-0 col-md-5 col-sm-5 pl-sm-0 col-6 d-sm-block d-none">
+						<div class="welcome-back-wrapper">
+							<div class="quarterCircleBottomLeft"></div>
+							<div class="halfCircleBottom"></div>
+							<div class="welcome-block mb-3">
+								<h2 class="font-weight-bold text-white mb-3">Welcome, Back!</h2>
+								<p class="w-100">By Creating Your Account Your Are Agree To Our Privacy And Policy</p>
+								<a href="{% url 'signup' %}" class="text-decoration-none btn btn-outline-rose">Signup</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

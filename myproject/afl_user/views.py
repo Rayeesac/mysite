@@ -39,7 +39,7 @@ builtins.pp = pp
 #####################################
 
 def home(request):	
-	return render(request, 'home.html')
+	return render(request, 'watch/home.html')
 
 ############ SignUp #################
 
@@ -53,10 +53,10 @@ class signup(View):
 			return redirect('home')
 		else:
 			messages.add_message(request,messages.ERROR, "Registration failed..!!")	
-		return render(request, 'signup.html', {'form':form})			
+		return render(request, 'user/signup.html', {'form':form})			
 	def get(self,request):
 		form = SignUpForm()		
-		return render(request, 'signup.html', {'form':form})	
+		return render(request, 'user/signup.html', {'form':form})	
 
 ############ LogIn #################
 
@@ -72,7 +72,7 @@ def login(request):
 			messages.add_message(request,messages.ERROR, 'Invaild Login.!')            
 	else:
 		form = LoginForm()
-	return render(request, 'login.html', {'form': form})
+	return render(request, 'user/login.html', {'form': form})
 
 ############ Update Account #################
 
@@ -80,7 +80,7 @@ def login(request):
 class UserUpdateView(SuccessMessageMixin,UpdateView):
     model = User
     fields = ('first_name', 'last_name', 'email', )
-    template_name = 'my_account.html'
+    template_name = 'user/my_account.html'
 
     def get_object(self):
     	return self.request.user
@@ -140,9 +140,9 @@ class PasswordContext:
 ########### Password Reset ##################        
 
 class PasswordResetView(PasswordContext, FormView):
-    template_name = 'password_reset.html'
-    email_template_name = 'password_reset_email.html'
-    subject_template_name = 'password_reset_subject.txt'
+    template_name = 'user/password_reset.html'
+    email_template_name = 'user/password_reset_email.html'
+    subject_template_name = 'user/password_reset_subject.txt'
     form_class = PasswordResetForm
     success_url = reverse_lazy('password_reset_done')
     title = ('Password reset')
@@ -186,10 +186,9 @@ def password_change(request):
 	else:
 		form = PasswordChangeForm(user=request.user)
 
-	return render(request, 'password_change.html', {'form':form})
+	return render(request, 'user/password_change.html', {'form':form})
 
 ################# Error Page ######################
 
 def error_view(request):
-	# raise get_object_or_404()
-	return render(request,'404.html',status=404)
+	return render(request,'includes/404.html',status=404)

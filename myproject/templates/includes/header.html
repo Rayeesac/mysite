@@ -1,0 +1,35 @@
+{% load static %}
+<header id="header" id="home">
+	<div class="container">
+		<div class="row align-items-center justify-content-between d-flex">
+			<div id="logo">
+				<a href="{% url 'home' %}"><img src="{% static 'watch-assets/img/logo.png' %}" alt="SmartWatch" /></a>
+			</div>
+			<nav id="nav-menu-container">
+				<ul class="nav-menu">
+					<li class="menu-active"><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#service">Service</a></li>
+					<li><a href="#unique">Unique Feature</a></li>
+					<li><a href="#review">Review</a></li>
+					<li><a href="#faq">Faq</a></li>
+					<li class="text-white menu-has-children"><a>Pages</a>
+						<ul><li><a href="generic.html">Generic</a></li></ul>
+					</li>
+					{% if user.is_authenticated %}
+						<li class="text-white menu-has-children">
+							<a>{{ user.username }}</a>
+							<ul>
+								<li><a href="{% url 'my_account' %}">My account</a></li>
+								<li><a href="{% url 'password_change' %}">Change password</a></li>
+								<li><a href="{% url 'logout' %}">Log out</a></li>
+							</ul>
+						</li>
+					{% elif request.get_full_path == '/' %}					
+						<li><a href="{% url 'login' %}">Log In</a></li>
+					{% endif %}
+				</ul>
+			</nav>		    		
+		</div>
+	</div>
+</header>
