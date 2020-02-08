@@ -83,16 +83,16 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #Database for eps89
 ######################
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Mysite',
-        'USER': 'postgres',
-        'PASSWORD': 'epsadmin',
-        'HOST': 'localhost',
-        'PORT':'5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Mysite',
+#         'USER': 'postgres',
+#         'PASSWORD': 'epsadmin',
+#         'HOST': 'localhost',
+#         'PORT':'5432',
+#     }
+# }
 
 ######################
 
@@ -100,16 +100,16 @@ DATABASES = {
 #rac-thinkpad
 ######################
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'Mysite',
-#         'USER': 'root',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT':'5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Mysite',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT':'5432',
+    }
+}
 
 ######################
 
