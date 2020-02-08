@@ -2,9 +2,14 @@
 
 {% block title %} My account {% endblock %}
 
+{% block banner %}
+	<h2 class="text-white text-uppercase">My Account</h2>
+	<p class="text-white">Please complete your profile..</p>
+{% endblock %}
+
 {% block breadcrumb %}
-	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-blue">Home </a>
-	<span class="text-black">/ My Account</span>
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-warning">Home </a>
+	<span class="text-white">/ My Account</span>
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -25,7 +30,7 @@
 							<div class="quarterCircleBottomLeft"></div>
 							<div class="halfCircleBottom"></div>
 							<div class="welcome-block mb-3">
-								<h2 class="font-weight-bold">Complete Profile!</h2>
+								<h2 class="font-weight-bold text-white mb-3">Complete Profile!</h2>
 								<p class="w-100">Please, Complete your account details.</p>								
 							</div>
 						</div>
