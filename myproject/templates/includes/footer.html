@@ -1,0 +1,43 @@
+{% load static %}
+
+<footer class="footer-area section-gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<a href="{% url 'home' %}"><img src="{% static 'watch-assets/img/logo.png' %}" alt="SmartWatch"  class="mb-3"/></a>
+
+					<p>Smartwatches have become more of a necessity these days. But buying one has become a lot more difficult, considering the wide range of options available.</p>
+					<p class="footer-text">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a></p>								
+				</div>
+			</div>
+			{% if request.get_full_path == '/' %}	
+			<div class="col-lg-4  col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>Newsletter</h6>
+					<p>Stay update with our latest</p>
+					<div id="mc_embed_signup">
+						<form method="post" class="form-inline" novalidate>
+							{% csrf_token %}
+							<input type="email" name="email" id="id_email" placeholder="Enter Email" class="form-control" maxlength="255" required="">
+							<button type="submit" class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			<div class="col-lg-3 col-md-6 col-sm-6 social-widget">
+				<div class="single-footer-widget">
+					<h6>Follow Us</h6>
+					<p>Let us be social</p>
+					<div class="footer-social d-flex align-items-center">
+						<a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+						<a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
+			</div>							
+		</div>
+	</div>
+</footer>	

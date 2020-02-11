@@ -24,6 +24,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 from django.shortcuts import render, get_object_or_404
 
+from .forms import NewsLetterForm
+from .models import Newsletter
+
+from django.core.mail import send_mail
+
 ########### Print Function ###############
 
 from django.conf import settings
@@ -37,9 +42,50 @@ def pp(*args):
 builtins.pp = pp 
 
 #####################################
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
-def home(request):	
-	return render(request, 'watch/home.html')
+			
+# from django.core.mail import EmailMultiAlternatives
+# from django.core.mail import EmailMessage
+# def home(request):
+# 	html_message = 'watch/news_letter_email.html'
+# 	if request.method == 'POST':
+# 		news = NewsLetterForm(request.POST)
+# 		if news.is_valid():			
+# 			news.save()
+# 			# if html_message:
+# 				# send_mail.attach_alternative(html_message, 'text/html')
+# 			# send_mail('Subject here','sssss','developer4mysite@gmail.com',['acr9030@gmail.com'],html_message=html_message,)
+# 			messages.add_message(request,messages.SUCCESS, 'Submitted Successfully.!')
+# 			return redirect('home')
+# 		else:
+# 			messages.add_message(request,messages.ERROR, "Already updated your email..")
+# 	else:
+# 		news = NewsLetterForm()
+# 	return render(request, 'watch/home.html',{'news':news})
+
+def home(request):
+	html_message = 'watch/news_letter_email.html'
+	if request.method == 'POST':
+		news = NewsLetterForm(request.POST)
+		if news.is_valid():			
+			news.save()
+			subject = 'Subject'
+			html_message = render_to_string('watch/news_letter_email.html', {'context': 'values'})
+			plain_message = strip_tags(html_message)
+			from_email = 'Mysite <developer4mysite@gmail.com>'
+			to = news.cleaned_data['email']
+			pp(to)
+			mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+			messages.add_message(request,messages.SUCCESS, 'Submitted Successfully.!')
+			return redirect('home')
+		else:
+			messages.add_message(request,messages.ERROR, "Already updated your email..")
+	else:
+		news = NewsLetterForm()
+	return render(request, 'watch/home.html',{'news':news})
 
 ############ SignUp #################
 
@@ -192,3 +238,11 @@ def password_change(request):
 
 def error_view(request):
 	return render(request,'includes/404.html',status=404)
+
+################# Generic page ###################
+
+def generic(request):
+	return render(request,'watch/generic.html')	
+
+def News(request):
+	return render(request, 'watch/news_letter_email.html')

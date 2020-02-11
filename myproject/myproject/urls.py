@@ -38,5 +38,8 @@ urlpatterns = [
     path('settings/password/', user_views.password_change,name='password_change'),
 	path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='user/password_change_done.html'),name='password_change_done'),
 	path('settings/account/', user_views.UserUpdateView.as_view(), name='my_account'),
-    path('error',views.error_view,name='error_view')
+    path('error',views.error_view,name='error_view'),
+    path('generic',views.generic,name='generic'),
+    path('news',views.News,name='News'),
+
 ]

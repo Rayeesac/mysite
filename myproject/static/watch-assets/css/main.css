@@ -2650,7 +2650,7 @@ h6 {
   border: none;
   width: 80% !important;
   font-weight: 300;
-  background: #191919;
+  background: #191919 !important;
   color: #777;
   padding-left: 20px;
   border-radius: 0;
@@ -2659,7 +2659,7 @@ h6 {
 }
 
 .single-footer-widget input:focus {
-  background-color: #191919;
+  background-color: #191919 !important;
 }
 
 .single-footer-widget .bb-btn {

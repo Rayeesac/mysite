@@ -4,7 +4,7 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock title %}</title>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{% static 'afl_user-assets/img/favicon.ico' type='image/x-icon' %}">
 
@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{% static 'afl_user-assets/css/toastr.css' %}">
 	<link rel="stylesheet" href="{% static 'watch-assets/css/linearicons.css' %}">
 	<link rel="stylesheet" href="{% static 'watch-assets/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'watch-assets/css/theme/pages.css' %}">
 	<link rel="stylesheet" href="{% static 'watch-assets/css/magnific-popup.css' %}">
 	<link rel="stylesheet" href="{% static 'watch-assets/css/nice-select.css' %}">		
 	<link rel="stylesheet" href="{% static 'watch-assets/css/animate.min.css' %}">
@@ -31,7 +32,7 @@
 	<!-- Main Body -->
 	{% block body %}
 
-		<!-- Navigation -->
+		<!-- Header Block -->
 		{% include 'includes/header.html' %}
 
 		{% if request.get_full_path == '/' %}			
@@ -60,40 +61,41 @@
 		</div>
 		{% endif %}
 		
-
-		<!-- Message Block -->
-		{% block messages %}
-		   {% include "includes/message.html" with messages=messages %}
-		{% endblock %}		
-
 		<!-- Content Block -->
 		{% block content %}{% endblock content %}
 
-		<!-- Javascript -->
-		<script src="{% static 'afl_user-assets/js/jquery.min.js' %}"></script>
-		<script src="{% static 'afl_user-assets/js/popper.min.js' %}"></script>
-		<script src="{% static 'afl_user-assets/js/developer.js' %}"></script>
-		<script src="{% static 'afl_user-assets/js/toastr.js' %}"></script>
-		<script src="{% static 'afl_user-assets/js/bootstrap.min.js' %}"></script>
-		<script src="{% static 'watch-assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
-		<script src="{% static 'watch-assets/js/vendor/bootstrap.min.js' %}"></script>
-		<script src="{% static 'watch-assets/js/easing.min.js' %}"></script>			
-		<script src="{% static 'watch-assets/js/hoverIntent.js' %}"></script>
-		<script src="{% static 'watch-assets/js/superfish.min.js' %}"></script>	
-		<script src="{% static 'watch-assets/js/jquery.ajaxchimp.min.js' %}"></script>
-		<script src="{% static 'watch-assets/js/jquery.magnific-popup.min.js' %}"></script>	
-		<script src="{% static 'watch-assets/js/owl.carousel.min.js' %}"></script>			
-		<script src="{% static 'watch-assets/js/jquery.sticky.js' %}"></script>
-		<script src="{% static 'watch-assets/js/jquery.nice-select.min.js' %}"></script>			
-		<script src="{% static 'watch-assets/js/parallax.min.js' %}"></script>	
-		<script src="{% static 'watch-assets/js/mail-script.js' %}"></script>	
-		<script src="{% static 'watch-assets/js/main.js' %}"></script>	
-		<script src="{% static 'watch-assets/js/vendor/map.js' %}"></script>	
-
-		{% block javascript %}{% endblock %}
+		<!-- Footer Block -->
+		{%  include 'includes/footer.html' %}
 
 	{% endblock %}
 
 </body>
+
+	<!-- Javascript -->
+	<script src="{% static 'afl_user-assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'watch-assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="{% static 'afl_user-assets/js/popper.min.js' %}"></script>
+	<script src="{% static 'afl_user-assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'watch-assets/js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'afl_user-assets/js/developer.js' %}"></script>
+	<script src="{% static 'afl_user-assets/js/toastr.js' %}"></script>
+	<script src="{% static 'watch-assets/js/easing.min.js' %}"></script>			
+	<script src="{% static 'watch-assets/js/hoverIntent.js' %}"></script>
+	<script src="{% static 'watch-assets/js/superfish.min.js' %}"></script>	
+	<script src="{% static 'watch-assets/js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'watch-assets/js/jquery.magnific-popup.min.js' %}"></script>	
+	<script src="{% static 'watch-assets/js/owl.carousel.min.js' %}"></script>			
+	<script src="{% static 'watch-assets/js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'watch-assets/js/jquery.nice-select.min.js' %}"></script>			
+	<script src="{% static 'watch-assets/js/parallax.min.js' %}"></script>	
+	<script src="{% static 'watch-assets/js/mail-script.js' %}"></script>	
+	<script src="{% static 'watch-assets/js/main.js' %}"></script>	
+	<script src="{% static 'watch-assets/js/vendor/map.js' %}"></script>	
+
+	<!-- Message Block -->
+	{% block messages %}
+		{% include 'includes/message.html' with messages=messages%}
+	{% endblock %}
+
 
 </html>

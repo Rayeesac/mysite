@@ -1,0 +1,90 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+	<title>News Letter | mysite</title>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="shortcut icon" href="{% static 'afl_user-assets/img/favicon.ico' type='image/x-icon' %}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="{% static 'afl_user-assets/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'watch-assets/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'watch-assets/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'afl_user-assets/css/custom_class.css' %}">
+	<link rel="stylesheet" href="{% static 'afl_user-assets/css/news_letter.css' %}">	
+</head>
+<body class="bg-gray-light-medium">
+	<div class="container mx-auto text-center py-5">
+		<div class="row">
+			<div class="col-lg-10 col-md-10 col-sm-10 mx-auto">
+				<div class="bg-white text-left">
+					<div class="bg-blue py-4 text-center">
+						<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/logo.png" alt="SmartWatch" class="img-fluid">
+					</div>
+					<div class="text-center">
+						<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/banner-news.jpg" alt="SmartWatch" class="img-fluid w-100">
+					</div>
+					<div class="thanks-text p-4">
+						<p class="font-weight-semi-bold text-dark">Thank You for reaching out. Your message has been successfully received.</p>
+						<p class="font-weight-semi-bold text-dark">Hi {% if user.is_authenticated %}{{user.username}}{% else %} there{% endif %},</p>
+						<p class="thanks-para">Thank you for your interest in MySite. Although this is an automated response to the form you completed, your interest in Mysite is very much appreciated.</p>
+						<a href="{% url 'home' %}" class="btn btn-rose mb-3" target="_blank">Visit Our Site</a>
+						<p>Good luck! Hope it works.</p>
+					</div>
+					<div class="container py-4">
+						<h2 class="text-center mb-4 text-warning text-shadow">Shopping Now</h2>
+						<div class="row">
+							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+								<div class="item box-shadow p-3 text-center h-100">
+									<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/robobull.jpg" class="img-fluid w-75">
+									<p class="pt-2 font-weight-semi-bold">Robobull Gt08 Fitness Smartwatch</p>
+									<p class="text-dark font-weight-bold">₹828.00</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+								<div class="item box-shadow p-3 text-center h-100">
+									<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/adlyn.jpg" class="img-fluid w-75">
+									<p class="pt-2 font-weight-semi-bold">Adlyn GT6 Bluetooth Health & Fitness Notifier</p>
+									<p class="text-dark font-weight-bold">₹1,034.00</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+								<div class="item box-shadow p-3 text-center h-100">
+									<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/piqancy.jpg" class="img-fluid w-75">
+									<p class="pt-2 font-weight-semi-bold">Piqancy Dz09 Gold Phone Black Smartwatch</p>
+									<p class="text-dark font-weight-bold">₹689.00</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+								<div class="item box-shadow p-3 text-center h-100">
+									<img src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/img/syl.jpg" class="img-fluid w-75">
+									<p class="pt-2 font-weight-semi-bold">SYL A1 Bluetooth Smart Watch with Camera</p>
+									<p class="text-dark font-weight-bold">₹999.00</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="container py-4 text-center">
+					<h4 class="mb-3">Please watch this video about smart watch</h4>			
+						<video width="100%" controls preload>
+							<source src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/video/video.mp4" type="video/mp4">
+							<source src="https://gitlab.com/Rayeesac/mysite/-/blob/master/myproject/static/watch-assets/video/video.ogg" type="video/ogg">
+							Your browser does not support HTML5 video.
+						</video>
+					</div>
+					<div class="follow-us-wrapper text-center">
+						<h6 class="text-blue">Follow Us</h6>
+						<ul class="list-unstyled social">
+							<li><a href="https://www.facebook.com" class="bg-blue text-white"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/" class="bg-blue text-white"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/" class="bg-blue text-white"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="https://www.linkedin.com/" class="bg-blue text-white"><i class="fa fa-linkedin"></i></a></li>
+						</ul>
+					</div>
+					<p class="footer-news-letter text-muted py-2 text-center bg-gray-light">Powered by <a href="{% url 'home' %}" class="text-blue">MySite</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>		

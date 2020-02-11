@@ -14,7 +14,7 @@
 					<li><a href="#review">Review</a></li>
 					<li><a href="#faq">Faq</a></li>
 					<li class="text-white menu-has-children"><a>Pages</a>
-						<ul><li><a href="generic.html">Generic</a></li></ul>
+						<ul><li><a href="{% url 'generic' %}">Generic</a></li></ul>
 					</li>
 					{% if user.is_authenticated %}
 						<li class="text-white menu-has-children">
