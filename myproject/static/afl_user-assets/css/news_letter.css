@@ -1,8 +1,12 @@
 .thanks-para{text-indent: 20px;line-height: 30px;}
-.social li{display: inline-block !important;margin-right: 8px;}
-.social li a{padding:13px !important;}
+.social li{display: inline-block !important;width: 60px !important;margin: 0 5px;}
+/*.social li a{padding:13px !important;}*/
 .follow-us-wrapper{margin-bottom: 30px !important;}
 .footer-news-letter{margin:10px 0 !important;}
 .box-shadow{box-shadow: 0 1px 6px 0 rgba(0,0,0,.16) !important;border-radius: 8px;}
 .text-shadow{text-shadow: 3px 1px 3px black !important;}
 .thanks-para{color: #444;}
+
+ @media only screen and (max-width: 360px){
+	.social li{display: inline-block !important;width: 40px !important;margin:3px !important;}
+}

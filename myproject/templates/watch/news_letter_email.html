@@ -1,90 +1,1345 @@
 {% load static %}
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html >
 <head>
 	<title>News Letter | mysite</title>
-	<meta name="viewport" content="width=device-width" />
 	<link rel="shortcut icon" href="{% static 'afl_user-assets/img/favicon.ico' type='image/x-icon' %}">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="{% static 'afl_user-assets/css/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'watch-assets/css/font-awesome.min.css' %}">
-	<link rel="stylesheet" href="{% static 'watch-assets/css/main.css' %}">
-	<link rel="stylesheet" href="{% static 'afl_user-assets/css/custom_class.css' %}">
-	<link rel="stylesheet" href="{% static 'afl_user-assets/css/news_letter.css' %}">	
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	
+	<style type="text/css" media="screen">
+		body { padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#eae8e1; -webkit-text-size-adjust:none }
+		a { color:#509c2b; text-decoration:none }
+		p { padding:0 !important; margin:0 !important } 
+		img { -ms-interpolation-mode: bicubic;} 
+		@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) { 
+			div[class='mobile-br-2'] { height: 2px !important; }
+			div[class='mobile-br-5'] { height: 5px !important; }
+			div[class='mobile-br-10'] { height: 10px !important; }
+			div[class='mobile-br-15'] { height: 15px !important; }
+			div[class='mobile-br-25'] { height: 25px !important; }
+			th[class='m-td'], 
+			td[class='m-td'], 
+			div[class='hide-for-mobile'], 
+			span[class='hide-for-mobile'] { display: none !important; width: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; min-height: 0 !important; }
+			span[class='mobile-block'] { display: block !important; }
+			div[class='img-m-center'] { text-align: center !important; }
+			td[class='text-top'],
+			td[class='text-top2'],
+			td[class='text-top-l'] 
+			td[class='text-table'] 
+			td[class='text-right'] 
+			div[class='h4-white-c'],
+			div[class='text-white-c'],
+			div[class='text-white2-c'],
+			div[class='text-white3-c'],
+			div[class='text-grey-right'],
+			div[class='text-grey'],
+			div[class='text-top'],
+			div[class='text-top2'],
+			div[class='text-white-right'],
+			div[class='text-white-footer'],
+			div[class='text-top-l'] { text-align: center !important; }
+			div[class='text-table'] { font-size: 10px !important; }
+			div[class='text-right'] { font-size: 10px !important; }
+			div[class='fluid-img'] img,
+			td[class='fluid-img'] img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+			table[class='mobile-shell'] { width: 100% !important; min-width: 100% !important; }
+			table[class='center'] { margin: 0 auto; }
+			table[class='left'] { margin-right: auto; }
+			th[class='column-top'],
+			th[class='column-rtl'],
+			th[class='column'] { float: left !important; width: 100% !important; display: block !important; }
+			td[class='td'] { width: 100% !important; min-width: 100% !important; }
+			td[class='w50'] { width: 50% !important; }
+			td[class='mw1'] { width: 110px !important; }
+			td[class='mw2'] { width: 110px !important; }
+			td[class='mw3'] { width: auto !important; }
+			td[class='content-spacing'] { width: 15px !important; }
+			td[class='content-spacing2'] { width: 8px !important; }
+		} 
+	</style>
 </head>
-<body class="bg-gray-light-medium">
-	<div class="container mx-auto text-center py-5">
-		<div class="row">
-			<div class="col-lg-10 col-md-10 col-sm-10 mx-auto">
-				<div class="bg-white text-left">
-					<div class="bg-blue py-4 text-center">
-						<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/logo.png" alt="SmartWatch" class="img-fluid">
-					</div>
-					<div class="text-center">
-						<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/banner-news.jpg" alt="SmartWatch" class="img-fluid w-100">
-					</div>
-					<div class="thanks-text p-4">
-						<p class="font-weight-semi-bold text-dark">Thank You for reaching out. Your message has been successfully received.</p>
-						<p class="font-weight-semi-bold text-dark">Hi {% if user.is_authenticated %}{{user.username}}{% else %} there{% endif %},</p>
-						<p class="thanks-para">Thank you for your interest in MySite. Although this is an automated response to the form you completed, your interest in Mysite is very much appreciated.</p>
-						<a href="{% url 'home' %}" class="btn btn-rose mb-3" target="_blank">Visit Our Site</a>
-						<p>Good luck! Hope it works.</p>
-					</div>
-					<div class="container py-4">
-						<h2 class="text-center mb-4 text-warning text-shadow">Shopping Now</h2>
-						<div class="row">
-							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-								<div class="item box-shadow p-3 text-center h-100">
-									<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/robobull.jpg" class="img-fluid w-75">
-									<p class="pt-2 font-weight-semi-bold">Robobull Gt08 Fitness Smartwatch</p>
-									<p class="text-dark font-weight-bold">₹828.00</p>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-								<div class="item box-shadow p-3 text-center h-100">
-									<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/adlyn.jpg" class="img-fluid w-75">
-									<p class="pt-2 font-weight-semi-bold">Adlyn GT6 Bluetooth Health & Fitness Notifier</p>
-									<p class="text-dark font-weight-bold">₹1,034.00</p>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-								<div class="item box-shadow p-3 text-center h-100">
-									<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/piqancy.jpg" class="img-fluid w-75">
-									<p class="pt-2 font-weight-semi-bold">Piqancy Dz09 Gold Phone Black Smartwatch</p>
-									<p class="text-dark font-weight-bold">₹689.00</p>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-								<div class="item box-shadow p-3 text-center h-100">
-									<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/syl.jpg" class="img-fluid w-75">
-									<p class="pt-2 font-weight-semi-bold">SYL A1 Bluetooth Smart Watch with Camera</p>
-									<p class="text-dark font-weight-bold">₹999.00</p>
-								</div>
-							</div>
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#eae8e1; -webkit-text-size-adjust:none">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#eae8e1">
+		<tr>
+			<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="1"></td>
+			<td align="center" valign="top">
+				<table width="650" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+					<tr>
+						<td class="td" style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+							<!-- Header -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<div class="hide-for-mobile"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+</div>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
-						</div>
-					</div>
-					<div class="container py-4 text-center">
-					<h4 class="mb-3">Please watch this video about smart watch</h4>			
-						<video width="100%" controls preload>
-							<source src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/video/video.mp4" type="video/mp4">
-							<source src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/video/watch.ogg" type="video/ogg">
-							Your browser does not support HTML5 video.
-						</video>
-					</div>
-					<div class="follow-us-wrapper text-center">
-						<h6 class="text-blue">Follow Us</h6>
-						<ul class="list-unstyled social">
-							<li><a href="https://www.facebook.com" class="bg-blue text-white"><img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yOTcuMjc3MzQ0IDUwOC42Njc5NjljLTIuMTMyODEzLjM0NzY1Ni00LjI3MzQzOC42Njc5NjktNi40MjE4NzUuOTYwOTM3IDIuMTQ4NDM3LS4yOTI5NjggNC4yODkwNjItLjYxMzI4MSA2LjQyMTg3NS0uOTYwOTM3em0wIDAiLz48cGF0aCBkPSJtMzAyLjM5ODQzOCA1MDcuNzkyOTY5Yy0xLjAxOTUzMi4xODc1LTIuMDM5MDYzLjM1OTM3NS0zLjA1ODU5NC41MzUxNTYgMS4wMTk1MzEtLjE3NTc4MSAyLjAzOTA2Mi0uMzQ3NjU2IDMuMDU4NTk0LS41MzUxNTZ6bTAgMCIvPjxwYXRoIGQ9Im0yODUuMTM2NzE5IDUxMC4zMzk4NDRjLTIuNDk2MDk0LjI4MTI1LTUuMDA3ODEzLjUzMTI1LTcuNTI3MzQ0Ljc0MjE4NyAyLjUxOTUzMS0uMjEwOTM3IDUuMDMxMjUtLjQ2MDkzNyA3LjUyNzM0NC0uNzQyMTg3em0wIDAiLz48cGF0aCBkPSJtMjkwLjA1NDY4OCA1MDkuNzM4MjgxYy0xLjE5OTIxOS4xNjAxNTctMi40MDYyNS4zMDg1OTQtMy42MDkzNzYuNDQ5MjE5IDEuMjAzMTI2LS4xNDA2MjUgMi40MTAxNTctLjI4OTA2MiAzLjYwOTM3Ni0uNDQ5MjE5em0wIDAiLz48cGF0aCBkPSJtMzA5LjM2NzE4OCA1MDYuNDEwMTU2Yy0uODk4NDM4LjE5MTQwNi0xLjgwMDc4Mi4zODI4MTMtMi43MDMxMjYuNTY2NDA2LjkwMjM0NC0uMTgzNTkzIDEuODA0Njg4LS4zNzUgMi43MDMxMjYtLjU2NjQwNnptMCAwIi8+PHBhdGggZD0ibTMyNi42NjQwNjIgNTAyLjExMzI4MWMtLjcyNjU2Mi4yMDcwMzEtMS40NTMxMjQuNDAyMzQ0LTIuMTc5Njg3LjYwNTQ2OS43MjY1NjMtLjIwMzEyNSAxLjQ1MzEyNS0uMzk4NDM4IDIuMTc5Njg3LS42MDU0Njl6bTAgMCIvPjxwYXRoIGQ9Im0zMjEuNDMzNTk0IDUwMy41NDI5NjljLS43ODkwNjMuMjA3MDMxLTEuNTgyMDMyLjQxNzk2OS0yLjM3NS42MTcxODcuNzkyOTY4LS4xOTkyMTggMS41ODU5MzctLjQwNjI1IDIuMzc1LS42MTcxODd6bTAgMCIvPjxwYXRoIGQ9Im0zMTQuNTg5ODQ0IDUwNS4yNTM5MDZjLS44MzU5MzguMTk1MzEzLTEuNjc5Njg4LjM3ODkwNi0yLjUyMzQzOC41NjY0MDYuODQzNzUtLjE4NzUgMS42ODc1LS4zNzEwOTMgMi41MjM0MzgtLjU2NjQwNnptMCAwIi8+PHBhdGggZD0ibTI3Ny41MjczNDQgNTExLjA4OTg0NGMtMS4zNDc2NTYuMTEzMjgxLTIuNjk1MzEzLjIxNDg0NC00LjA0Njg3NS4zMDQ2ODcgMS4zNTE1NjItLjA4OTg0MyAyLjY5OTIxOS0uMTkxNDA2IDQuMDQ2ODc1LS4zMDQ2ODd6bTAgMCIvPjxwYXRoIGQ9Im01MTIgMjU2YzAtMTQxLjM2MzI4MS0xMTQuNjM2NzE5LTI1Ni0yNTYtMjU2cy0yNTYgMTE0LjYzNjcxOS0yNTYgMjU2IDExNC42MzY3MTkgMjU2IDI1NiAyNTZjMS41MDM5MDYgMCAzLS4wMzEyNSA0LjUtLjA1ODU5NHYtMTk5LjI4NTE1NmgtNTV2LTY0LjA5NzY1Nmg1NXYtNDcuMTY3OTY5YzAtNTQuNzAzMTI1IDMzLjM5NDUzMS04NC40NzY1NjMgODIuMTkxNDA2LTg0LjQ3NjU2MyAyMy4zNjcxODggMCA0My40NTMxMjUgMS43NDIxODggNDkuMzA4NTk0IDIuNTE5NTMydjU3LjE3MTg3NWgtMzMuNjQ4NDM4Yy0yNi41NDY4NzQgMC0zMS42ODc1IDEyLjYxNzE4Ny0zMS42ODc1IDMxLjEyODkwNnY0MC44MjQyMTloNjMuNDc2NTYzbC04LjI3MzQzNyA2NC4wOTc2NTZoLTU1LjIwMzEyNnYxODkuNDUzMTI1YzEwNy4wMDM5MDctMzAuNjc1NzgxIDE4NS4zMzU5MzgtMTI5LjI1NzgxMyAxODUuMzM1OTM4LTI0Ni4xMDkzNzV6bTAgMCIvPjxwYXRoIGQ9Im0yNzIuOTE0MDYyIDUxMS40Mjk2ODhjLTIuNjY0MDYyLjE3MTg3NC01LjMzOTg0My4zMDg1OTMtOC4wMjM0MzcuMzk4NDM3IDIuNjgzNTk0LS4wODk4NDQgNS4zNTkzNzUtLjIyNjU2MyA4LjAyMzQzNy0uMzk4NDM3em0wIDAiLz48cGF0aCBkPSJtMjY0Ljc1MzkwNiA1MTEuODM1OTM4Yy0xLjQxNDA2Mi4wNDY4NzQtMi44MzIwMzEuMDgyMDMxLTQuMjUuMTA1NDY4IDEuNDE3OTY5LS4wMjM0MzcgMi44MzU5MzgtLjA1ODU5NCA0LjI1LS4xMDU0Njh6bTAgMCIvPjwvc3ZnPg=="></a></li>
-							<li><a href="https://twitter.com/" class="bg-blue text-white"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.instagram.com/" class="bg-blue text-white"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="https://www.linkedin.com/" class="bg-blue text-white"><i class="fa fa-linkedin"></i></a></li>
-						</ul>
-					</div>
-					<p class="footer-news-letter text-muted py-2 text-center bg-gray-light">Powered by <a href="{% url 'home' %}" class="text-blue">MySite</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
+										<!-- Top Bar -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="15">																
+															</td>
+															<td>
+																<div class="img-right" style="font-size:0pt; line-height:0pt; text-align:right"><img src="images/dark_grey_corner_tr.jpg" border="0" width="15" height="14" alt="" /></div>
+															</td>
+														</tr>
+													</table>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<!-- Column -->
+															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td align="left">
+																			<table class="center" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																					<td class="text-top-l" style="color:#ffffff; font-family:Arial,sans-serif; font-size:11px; line-height:15px; text-align:left; text-transform:uppercase">
+																						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="5" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+																						<img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/logo.png" alt="SmartWatch">
+																						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																					</td>
+																					<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+															<!-- Column -->
+															<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="220">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																		<td align="right">
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="5" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<!-- Socials -->
+																			<table class="center" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="34">
+																						<a href="https://www.facebook.com" target="_blank"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/social/facebook.png" border="0" width="24" height="24"></a>
+																					</td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="34">
+																						<a href="https://twitter.com/" target="_blank"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/social/twitter.png" border="0" width="24" height="24"></a>
+																					</td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="34">
+																						<a href="https://www.instagram.com/" target="_blank"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/social/instagram.png" border="0" width="24" height="24"></a>
+																					</td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="34">
+																						<a href="https://www.linkedin.com/" target="_blank"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/social/linkedin.png" border="0" width="24" height="24"></a>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Socials -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																		</td>
+																		<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+										<!-- END Top Bar -->
+							
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+											<tr>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<!-- Column -->
+															<th class="column" style="font-size:20px; line-height:0pt; padding:0; margin:0; font-weight:bold;color: #333;" width="205">
+																Smart Watch
+															</th>
+															<!-- END COlumn -->
+															<!-- Column -->
+															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="text-top2" style="color:#666666; font-family:Arial,sans-serif; font-size:11px; line-height:15px; text-align:right; text-transform:uppercase">
+																			<a href="http://localhost:8002/#about" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline;"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">ABOUT</span></a>
+																			 &nbsp; &nbsp; 
+																			<a href="http://localhost:8002/#service" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">SERVICE</span></a>
+																			 &nbsp; &nbsp;
+																			<a href="http://localhost:8002/#unique" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">UNIQUE FEATURE</span></a>
+																				&nbsp; &nbsp;
+																			<a href="http://localhost:8002/#review" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">REVIEW</span></a>
+																				&nbsp; &nbsp;
+																			<a href="http://localhost:8002/#faq" target="_blank" class="link-grey2-u" style="color:#666666; text-decoration:underline"><span class="link-grey2-u" style="color:#666666; text-decoration:underline">FAQ</span></a>
+																				&nbsp; &nbsp;
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+														</tr>
+													</table>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<!-- END Header -->
+							
+							<!-- Section 1 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/banner-news.jpg" alt="SmartWatch"></a></div>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="350">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+															<td>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="16" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<div class="h4-white2" style="color:#ffffff; font-family:Arial,sans-serif; font-size:18px; line-height:24px; text-align:left">Smart New Future</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="16" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+															</td>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+														</tr>
+													</table>
+												</th>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+							<!-- END Section 1 -->
+							
+							<!-- Section 2 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<!-- Head -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<div class="h3-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:26px; line-height:30px; text-align:center">
+														Now you can feel the Heat
+													</div>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="5" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+							
+													<div class="text-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">A smartwatch is a digital watch that provides many other features besides timekeeping.</div>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													
+													<div class="img-center" style="font-size:0pt; line-height:0pt; text-align:center"><img src="{% static 'watch-assets/img/down-arrow.png' %}" border="0" width="25" height="21" alt="" /></div>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Head -->
+							
+										<!-- Article 1 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f8f8f8">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;" width="300">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/robobull.jpg" border="0" width="300" height="300" alt="" /></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+															<td>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<div class="green-title" style="color:#509c2b; font-family:Arial,sans-serif; font-size:16px; line-height:20px; text-align:left; font-weight:bold; text-transform:uppercase">Robobull Gt08 Fitness Smartwatch</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="25" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										
+																<div class="text3" style="color:#625e50; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">
+																	&bull; smart watch is designed for fashion and precision, integrated with the state-of-art technology
+																	<br />
+																	<br />
+																	&bull; It is truly an elegant and exquisite timepiece. 
+																	<br />
+																	<br />
+																	&bull; It connects to your Android device via Bluetooth so you get notified simultaneously. 
+																</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="26" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="price-green" style="color:#509c2b; font-family:Arial,sans-serif; font-size:18px; line-height:22px; text-align:left">₹828.00</div>
+																		</td>
+																		<td align="right">
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="right">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="http://localhost:8002/" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">More INFO</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																		</td>
+																	</tr>
+																</table>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+															</td>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Article 1 -->
+							
+										<!-- Article 2 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f8f8f8">
+											<tr>
+
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+															<td>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<div class="green-title" style="color:#509c2b; font-family:Arial,sans-serif; font-size:16px; line-height:20px; text-align:left; font-weight:bold; text-transform:uppercase">Adlyn GT6 Bluetooth Health & Fitness Notifier</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="25" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										
+																<div class="text3" style="color:#625e50; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">
+																	&bull; Phone functional, hand free, call recording,phone book and Bluetooth phone calling
+																	<br />
+																	<br />
+																	&bull; Image Caviewer, Sound recorder, Audio player
+																	<br />
+																	<br />
+																	&bull; Remote photos,Storage to the phone Alarm clock
+																</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="26" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="price-green" style="color:#509c2b; font-family:Arial,sans-serif; font-size:18px; line-height:22px; text-align:left">₹1,034.00</div>
+																		</td>
+																		<td align="right">
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="right">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="http://localhost:8002/" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">More INFO</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																		</td>
+																	</tr>
+																</table>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+															</td>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+														</tr>
+													</table>
+												</th>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="300">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/adlyn.jpg" border="0" width="300" height="300" alt="" /></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Article 2 -->									
+							
+										<!-- Article 3 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f8f8f8">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="300">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/piqancy.jpg" border="0" width="300" height="300" alt="" /></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+															<td>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<div class="green-title" style="color:#509c2b; font-family:Arial,sans-serif; font-size:16px; line-height:20px; text-align:left; font-weight:bold; text-transform:uppercase">Piqancy Dz09 Gold Phone Black Smartwatch</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="25" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										
+																<div class="text3" style="color:#625e50; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">
+																	&bull; Highly recommended
+																	<br />
+																	<br />
+																	&bull; Overall good product, delivered on time.
+																	<br />
+																	<br />
+																	&bull; Expected a better product
+																</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="26" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="price-green" style="color:#509c2b; font-family:Arial,sans-serif; font-size:18px; line-height:22px; text-align:left">₹689.00</div>
+																		</td>
+																		<td align="right">
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="right">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="http://localhost:8002/" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">More INFO</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																		</td>
+																	</tr>
+																</table>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+															</td>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Article 3 -->
+
+										<!-- Article 4 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f8f8f8">
+											<tr>
+
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+															<td>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<div class="green-title" style="color:#509c2b; font-family:Arial,sans-serif; font-size:16px; line-height:20px; text-align:left; font-weight:bold; text-transform:uppercase">SYL A1 Bluetooth Smart Watch with Camera</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="25" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										
+																<div class="text3" style="color:#625e50; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">
+																	&bull; SYNC FUNCTIONS: Bluetooth connectivity, Bluetooth Music Control, Voice Recorder, Sim-card (Micro) support, Calling function, Cellphone finder
+																	<br />
+																	<br />
+																	&bull; Sport health: Pedometer,sedentary remind,sleep monitoring.
+																	<br />
+																	<br />
+																	&bull; Broad and Wide Compatibility: Easily and best compatible with All Android Smartphones and IOS Devices 
+																</div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="26" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="price-green" style="color:#509c2b; font-family:Arial,sans-serif; font-size:18px; line-height:22px; text-align:left">₹999.00</div>
+																		</td>
+																		<td align="right">
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="right">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="http://localhost:8002/" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">More INFO</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																		</td>
+																	</tr>
+																</table>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+															</td>
+															<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="300">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="https://raw.githubusercontent.com/Rayeesac/mysite/master/myproject/static/watch-assets/img/syl.jpg" border="0" width="300" height="300" alt="" /></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Article 4 -->
+									</td>
+								</tr>
+							</table>
+							<!-- END Section 2 -->
+							
+							<!-- Section 3 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td background="images/bg_image.jpg" bgcolor="#adc0c3" valign="top" height="240">
+										<!--[if gte mso 9]>
+										<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px; height: 240px">
+											<v:fill type="frame" src="images/bg_image.jpg" color="#adc0c3" />
+											<v:textbox inset="0,0,0,0">
+										<![endif]-->
+										<div>
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+													<td align="center" height="240">
+														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+														<div class="h3-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:26px; line-height:30px; text-align:center">Get Ready to Start Your Shopping</div>
+														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="5" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+														<div class="h4-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:15px; line-height:20px; text-align:center; text-transform:uppercase">Who are in extremely love with eco friendly system.</div>
+														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+													
+														<!-- Buttons -->
+														<table class="center" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<!-- Column -->
+																<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																		<tr>
+																			<td align="center">
+																				<!-- Button -->
+																				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#ececec">
+																					<tr>
+																						<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																						<td>
+																							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																							<div class="text3" style="color:#625e50; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">
+																								<a href="http://localhost:8002/#unique" target="_blank" class="link-grey" style="color:#383838; text-decoration:none"><span class="link-grey" style="color:#383838; text-decoration:none"><strong>SHOPPING NOW</strong></span></a>
+																							</div>
+																							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																						</td>
+																						<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																					</tr>
+																				</table>
+																				<!-- END Button -->
+																			</td>
+																		</tr>
+																	</table>
+																</th>
+																<!-- END COlumn -->
+																<!-- Column -->
+																<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="22"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-15"></div>
+</th>
+																<!-- END COlumn -->
+																<!-- Column -->
+																<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																		<tr>
+																			<td align="center">
+																				<!-- Button -->
+																				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																					<tr>
+																						<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																						<td>
+																							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																							<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																								<a href="http://localhost:8002/generic#unique" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none"><strong>Start your search</strong></span></a>
+																							</div>
+																							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																						</td>
+																						<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+																					</tr>
+																				</table>
+																				<!-- END Button -->
+																			</td>
+																		</tr>
+																	</table>
+																</th>
+																<!-- END COlumn -->
+															</tr>
+														</table>
+														<!-- END Buttons -->
+														<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													</td>
+													<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												</tr>
+											</table>
+										</div>
+										<!--[if gte mso 9]>
+											</v:textbox>
+											</v:rect>
+										<![endif]-->
+									</td>
+								</tr>
+							</table>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+							<!-- END Section 3 -->
+							
+							<!-- Section 4 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f0f0f0">
+								<tr>
+									<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+									<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<div class="h3-center" style="color:#383838; font-family:Arial,sans-serif; font-size:26px; line-height:30px; text-align:center"><strong>Photo</strong> Gallery</div>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- Row 1 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image1.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image2.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image3.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Row 1 -->
+							
+										<!-- Row 2 -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image4.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image5.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="195">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td><div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/photo_gallery_image6.jpg" border="0" width="195" height="160" alt="" /></a></div></td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Row 2 -->
+							
+										<!-- Foot -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+											<tr>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<!-- Column -->
+															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="400">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="h4-white-c" style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; line-height:20px; text-align:left; font-weight:bold; text-transform:uppercase">GET IN TOUCH</div>
+																			<div style="font-size:0pt; line-height:0pt;" class="mobile-br-15"></div>
+
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+															<!-- Column -->
+															<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td align="right">
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="center">
+																						<table border="0" cellspacing="0" cellpadding="0">
+																							<tr>
+																								<td style="border: 2px solid #ffffff;">
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																										<tr>
+																											<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="24"></td>
+																											<td>
+																												<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="7" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																												<div class="text-button2" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left; text-transform:uppercase">
+																													<strong><a href="http://localhost:8002/#mc_embed_signup" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Contact us</span></a></strong>
+																												</div>
+																												<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="7" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																											</td>
+																											<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="24"></td>
+																										</tr>
+																									</table>
+																								</td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+														</tr>
+													</table>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+											</tr>
+										</table>
+										<!-- END Foot -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="50" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+									</td>
+									<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+								</tr>
+							</table>
+							<!-- END Section 4 -->
+							
+							<!-- Section 5 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<!-- Head -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<div class="h3-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:26px; line-height:30px; text-align:center">Our Featured Properties</div>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<!-- END Head -->
+										
+										<!-- Three Columns -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="215">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="images/three_columns_image7.jpg" border="0" width="215" height="153" alt="" /></div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																		<td>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center4" style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; line-height:22px; text-align:center">Luxury Apartment</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="6" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-grey-center2" style="color:#a0a0a0; font-family:Arial,sans-serif; font-size:14px; line-height:22px; text-align:center">Miami, USA</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">Beds: 4 &nbsp; Baths: 3 &nbsp; ft<sup class="sup" style="font-size:0.6em; line-height:1">2</sup>: 200</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center3" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:20px; text-align:center; text-transform:uppercase"><strong>$200,000</strong></div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="center">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Read more</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																		</td>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2" bgcolor="#ffffff"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="215">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="images/three_columns_image8.jpg" border="0" width="215" height="153" alt="" /></div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																		<td>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center4" style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; line-height:22px; text-align:center">Luxury Apartment</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="6" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-grey-center2" style="color:#a0a0a0; font-family:Arial,sans-serif; font-size:14px; line-height:22px; text-align:center">Miami, USA</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">Beds: 4 &nbsp; Baths: 3 &nbsp; ft<sup class="sup" style="font-size:0.6em; line-height:1">2</sup>: 200</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center3" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:20px; text-align:center; text-transform:uppercase"><strong>$200,000</strong></div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="center">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Read more</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																		</td>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="2" bgcolor="#ffffff"><div style="font-size:0pt; line-height:0pt;" class="mobile-br-2"></div>
+</th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><img src="images/three_columns_image9.jpg" border="0" width="215" height="153" alt="" /></div>
+																<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																		<td>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center4" style="color:#ffffff; font-family:Arial,sans-serif; font-size:16px; line-height:22px; text-align:center">Luxury Apartment</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="6" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-grey-center2" style="color:#a0a0a0; font-family:Arial,sans-serif; font-size:14px; line-height:22px; text-align:center">Miami, USA</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">Beds: 4 &nbsp; Baths: 3 &nbsp; ft<sup class="sup" style="font-size:0.6em; line-height:1">2</sup>: 200</div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#474747" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td bgcolor="#474747" height="1" class="border" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<div class="text-white-center3" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:20px; text-align:center; text-transform:uppercase"><strong>$200,000</strong></div>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<!-- Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td align="center">
+																						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+																							<tr>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																								<td>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																									<div class="text-button" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:center; text-transform:uppercase">
+																										<a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">Read more</span></a>
+																									</div>
+																									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="12" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																								</td>
+																								<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																			<!-- END Button -->
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																		</td>
+																		<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<!-- END Three Columns -->
+									</td>
+								</tr>
+							</table>
+							<!-- END Section 5 -->
+							
+							<!-- Section 6 -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fbfbfb">
+								<tr>
+									<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+									<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="403">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/image_gallery1.jpg" border="0" width="403" height="150" alt="" /></a></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<th class="m-td" style="font-size:0pt; line-height:0pt; text-align:left" width="2" bgcolor="#fbfbfb"></th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/image_gallery2.jpg" border="0" width="185" height="150" alt="" /></a></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/image_gallery3.jpg" border="0" width="185" height="150" alt="" /></a></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+												<th class="m-td" style="font-size:0pt; line-height:0pt; text-align:left" width="2" bgcolor="#fbfbfb"></th>
+												<!-- END COlumn -->
+												<!-- Column -->
+												<th class="column" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0" width="403">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td>
+																<div class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left"><a href="#" target="_blank"><img src="images/image_gallery4.jpg" border="0" width="403" height="150" alt="" /></a></div>
+															</td>
+														</tr>
+													</table>
+												</th>
+												<!-- END COlumn -->
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+									</td>
+									<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+								</tr>
+							</table>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="2" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+							<!-- END Section 6 -->
+							
+							<!-- Footer -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<!-- Column -->
+															<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" width="270">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="img" style="font-size:0pt; line-height:0pt; text-align:left">
+																				<div class="img-m-center" style="font-size:0pt; line-height:0pt"><a href="#" target="_blank"><img src="images/free_logo_footer.jpg" border="0" width="140" height="47" alt="" /></a></div>
+																			</div>
+																			<div style="font-size:0pt; line-height:0pt;" class="mobile-br-15"></div>
+
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+															<!-- Column -->
+															<th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td align="right">
+																			<!-- Socials -->
+																			<table class="center" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_facebook.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_twitter.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_gplus.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_youtube.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_instagram.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_pinterest.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="32"><a href="#" target="_blank"><img src="images/ico4_linkedin.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																					<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="24"><a href="#" target="_blank"><img src="images/ico4_rss.jpg" border="0" width="24" height="24" alt="" /></a></td>
+																				</tr>
+																			</table>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="25" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+																			<!-- END Socials -->
+																			<div class="text-white-right" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:right">
+																				<a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">East Pixel Bld. 99, Creative City 9000, Republic of Design</span></a><br />
+																				<a href="http://www.YourSiteName.com" target="_blank" class="link-white-u" style="color:#ffffff; text-decoration:underline"><span class="link-white-u" style="color:#ffffff; text-decoration:underline">www.YourSiteName.com</span></a> &nbsp; <a href="mailto:email@sitename.com" target="_blank" class="link-white-u" style="color:#ffffff; text-decoration:underline"><span class="link-white-u" style="color:#ffffff; text-decoration:underline">email@sitename.com</span></a>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+														</tr>
+													</table>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												 
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" dir="rtl" style="direction: rtl;">
+														<tr>
+															<!-- Column -->
+															<th class="column-rtl" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0; direction:ltr" >
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="text-white-right" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:right">
+																				Phone: <a href="tel:+1123456789" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none"><span class="link-white" style="color:#ffffff; text-decoration:none">+1 (123) 456-789</span></a>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+															<!-- Column -->
+															<th class="column-rtl" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0; direction:ltr" width="270">
+																<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td>
+																			<div class="text-white-footer" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:18px; text-align:left">Copyright &copy; 2018 Company Name</div>
+																		</td>
+																	</tr>
+																</table>
+															</th>
+															<!-- END COlumn -->
+														</tr>
+													</table>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#383838">
+											<tr>
+												<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="14"><img src="images/grey_green_corner_bl.jpg" border="0" width="14" height="15" alt="" /></td>
+												<td class="img-right" style="font-size:0pt; line-height:0pt; text-align:right"><img src="images/grey_green_corner_br.jpg" border="0" width="14" height="15" alt="" /></td>
+											</tr>
+										</table>
+							
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+											<tr>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="30" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+													<div class="text-white-center" style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">
+														You&rsquo;re receiving this newsletter because you bought template from us. <br />Not interested anymore? <a href="#" target="_blank" class="link-white-u" style="color:#ffffff; text-decoration:underline"><span class="link-white-u" style="color:#ffffff; text-decoration:underline">Unsubscribe</span></a> instantly.
+													</div>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+												</td>
+												<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
+											</tr>
+										</table>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#509c2b">
+											<tr>
+												<td class="img" style="font-size:0pt; line-height:0pt; text-align:left" width="14"><img src="images/green_corner_bl.jpg" border="0" width="14" height="15" alt="" /></td>
+												<td class="img-right" style="font-size:0pt; line-height:0pt; text-align:right"><img src="images/green_corner_br.jpg" border="0" width="14" height="15" alt="" /></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+							<!-- END Footer -->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
+
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="1"></td>
+		</tr>
+	</table>
 </body>
-</html>		
+</html>
