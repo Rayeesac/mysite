@@ -29,6 +29,10 @@ from .models import Newsletter
 
 from django.core.mail import send_mail
 
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 ########### Print Function ###############
 
 from django.conf import settings
@@ -42,29 +46,6 @@ def pp(*args):
 builtins.pp = pp 
 
 #####################################
-from django.core import mail
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
-
-			
-# from django.core.mail import EmailMultiAlternatives
-# from django.core.mail import EmailMessage
-# def home(request):
-# 	html_message = 'watch/news_letter_email.html'
-# 	if request.method == 'POST':
-# 		news = NewsLetterForm(request.POST)
-# 		if news.is_valid():			
-# 			news.save()
-# 			# if html_message:
-# 				# send_mail.attach_alternative(html_message, 'text/html')
-# 			# send_mail('Subject here','sssss','developer4mysite@gmail.com',['acr9030@gmail.com'],html_message=html_message,)
-# 			messages.add_message(request,messages.SUCCESS, 'Submitted Successfully.!')
-# 			return redirect('home')
-# 		else:
-# 			messages.add_message(request,messages.ERROR, "Already updated your email..")
-# 	else:
-# 		news = NewsLetterForm()
-# 	return render(request, 'watch/home.html',{'news':news})
 
 def home(request):
 	html_message = 'watch/news_letter_email.html'
@@ -246,3 +227,6 @@ def generic(request):
 
 def News(request):
 	return render(request, 'watch/news_letter_email.html')
+
+def contact(request):
+    return render(request, 'watch/contact.html')

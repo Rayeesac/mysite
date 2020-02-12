@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock title %}</title>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{% static 'afl_user-assets/img/favicon.ico' type='image/x-icon' %}">
@@ -92,6 +93,9 @@
 	<script src="{% static 'watch-assets/js/main.js' %}"></script>	
 	<script src="{% static 'watch-assets/js/vendor/map.js' %}"></script>	
 
+	{% block javascript %}
+	{% endblock %}
+	
 	<!-- Message Block -->
 	{% block messages %}
 		{% include 'includes/message.html' with messages=messages%}

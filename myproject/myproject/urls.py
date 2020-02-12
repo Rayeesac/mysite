@@ -40,6 +40,7 @@ urlpatterns = [
 	path('settings/account/', user_views.UserUpdateView.as_view(), name='my_account'),
     path('error',views.error_view,name='error_view'),
     path('generic',views.generic,name='generic'),
+    path('contact',views.contact,name='contact'),
     path('news',views.News,name='News'),
 
 ]
