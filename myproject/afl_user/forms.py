@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Newsletter
+from .models import Newsletter,Contact
 from django.forms import ModelForm
 
 class SignUpForm(UserCreationForm):
@@ -14,3 +14,8 @@ class NewsLetterForm(forms.ModelForm):
 	class Meta:
 		model = Newsletter
 		fields = ('email',)
+
+class ContactUsForm(forms.ModelForm):
+	class Meta:
+		model = Contact
+		fields = ('first_name','last_name','email','phoneno','msg')		

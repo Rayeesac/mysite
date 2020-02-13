@@ -23,34 +23,35 @@
 {% block content %}
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" method="post" novalidate>
+				{% csrf_token %}
 				<span class="contact100-form-title font-weight-bold">Get In Touch</span>
 
 				<label class="label-input100" for="first-name">Tell us your name *</label>
 				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-					<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
+					<input id="id_first_name" class="input100" type="text" name="first_name" placeholder="First name">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-					<input class="input100" type="text" name="last-name" placeholder="Last name">
+					<input id="id_last_name" class="input100" type="text" name="last_name" placeholder="Last name">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="email">Enter your email *</label>
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
+					<input id="id_email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="phone">Enter phone number</label>
 				<div class="wrap-input100">
-					<input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +1 800 000000">
+					<input id="id_phoneno" class="input100" type="text" name="phoneno" placeholder="Eg. +1 800 000000">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="message">Message *</label>
 				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+					<textarea id="id_msg" class="input100" name="msg" placeholder="Write us a message"></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -58,6 +59,13 @@
 					<button class="btn btn-success">Send Message</button>
 				</div>
 			</form>
+
+<!-- 			<form method="post" novalidate>
+				{% csrf_token %}
+				{% include 'includes/form.html' %}
+				<button type="submit" class="btn btn-rose float-md-none float-left mr-2 mr-xs-3">Login</button>
+				<a href="{% url 'password_reset' %}" class="text-muted text-decoration-none float-md-right pt-sm-3 pt-2 float-left">Forgot your password?</a>
+			</form> -->
 
 			<div class="contact100-more flex-col-c-m" style="background-image: url('{% static 'contact/images/bg-01.jpg' %}');">
 				<div class="flex-w size1 p-b-47">

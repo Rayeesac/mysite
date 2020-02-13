@@ -33,6 +33,9 @@ from django.core import mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+from .forms import ContactUsForm
+from .models import Contact
+
 ########### Print Function ###############
 
 from django.conf import settings
@@ -228,5 +231,23 @@ def generic(request):
 def News(request):
 	return render(request, 'watch/news_letter_email.html')
 
-def contact(request):
-    return render(request, 'watch/contact.html')
+def contactus(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form_email = form.cleaned_data['email']
+            pp(form_email)
+            email_status = False
+            if Contact.objects.filter(email=form_email).exists():
+                email_status = True
+            if email_status:
+                messages.add_message(request,messages.ERROR,'Email Address is Already Taken..!!')            
+            else:
+                form.save()
+                messages.add_message(request,messages.SUCCESS,'Submitted successfully')            
+            return redirect('home')
+        else:
+            messages.add_message(request,messages.ERROR,'Failed..')
+    else:
+        form = ContactUsForm()
+    return render(request, 'watch/contact.html' , {'form':form})
