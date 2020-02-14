@@ -21,6 +21,9 @@
 					<form method="post" novalidate>
 						{% csrf_token %}
 						{% include 'includes/form.html' %}
+
+						<div class="g-recaptcha mb-3" data-sitekey="6LdeitgUAAAAADveQhx03beA2tqDg-gLD3lnpt-T"></div>
+
 						<button type="submit" class="btn btn-rose float-md-none float-left mr-2 mr-xs-3">Login</button>
 						<a href="{% url 'password_reset' %}" class="text-muted text-decoration-none float-md-right pt-sm-3 pt-2 float-left">Forgot your password?</a>
 					</form>

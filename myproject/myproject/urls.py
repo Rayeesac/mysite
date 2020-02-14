@@ -20,10 +20,8 @@ from afl_user import views
 from afl_user import views as user_views
 from django.contrib.auth import views as auth_views
 
-# from django.conf.urls import handler404,handler500
-# from django.conf import settings
-# from django.conf.urls.static import static
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name="home"),
@@ -41,6 +39,9 @@ urlpatterns = [
     path('error',views.error_view,name='error_view'),
     path('generic',views.generic,name='generic'),
     path('contactus',views.contactus,name='contactus'),
-    path('news',views.News,name='News'),
-
+    path('update/profile',user_views.UpdateProfile.as_view(),name="UpdateProfile"),
+    path('ajax/load-states/', views.load_states, name='ajax_load_states'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT)

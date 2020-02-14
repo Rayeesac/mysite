@@ -1,10 +1,16 @@
 {% extends 'user/base.html' %}
 
-{% block title %} Page Not Found {% endblock title %}
+{% block title %} Error {% endblock title %}
+
+{% block banner %}
+	<h2 class="text-white text-uppercase">Error</h2>
+	<p class="text-white">Page Not Found</p>
+{% endblock %}
 
 {% block breadcrumb %}
-	<span class="text-black">Page Not Found</span>
-{% endblock %} 
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-warning">Home </a>
+	<span class="text-white">/ Page Not found</span>
+{% endblock breadcrumb %}
 
 {% block content %}
 <head>

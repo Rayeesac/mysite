@@ -1,0 +1,60 @@
+{% extends 'user/base.html' %}
+
+{% block title %} Signup {% endblock title %}
+
+{% block banner %}
+	<h2 class="text-white text-uppercase">Sign In</h2>
+	<p class="text-white">Get started with your account</p>
+{% endblock %}
+
+{% block breadcrumb %}
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-warning">Home </a>
+	<span class="text-white">/ Signup</span>
+{% endblock breadcrumb %}
+
+{% block content %}
+	<div class="signup-wrapper">
+		<div class="container">
+			<div class="row m-auto border-gray pr-0 user-login-section">
+				<div class="col-lg-4 pr-0 col-md-5 col-sm-5 pl-sm-0 col-6 d-sm-block d-none">
+					<div class="hello-friend-block">
+						<div class="quarterCircleBottomLeft"></div>
+						<div class="halfCircleBottom"></div>
+						<div class="welcome-block mb-3 pt-md-5">
+							<h2 class="font-weight-bold text-white mb-3">Hello, Friend!</h2>
+							<p class="w-100">By Creating Your Account Your Are Agree To Our Privacy And Policy</p>
+							<a href="{% url 'login' %}" class="text-decoration-none btn btn-outline-rose">Login</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7 m-auto col-md-6 col-sm-7 col-11 py-3">
+					<h3 class="text-blue font-weight-bold text-center">Edit Profile</h3>					
+					<form method="post" enctype="multipart/form-data" novalidate data-states-url="{% url 'ajax_load_states' %}" novalidate>
+						{% csrf_token %}
+						{% include 'includes/profile_form.html' %}
+						<button type="submit" class="btn btn-rose">Save Changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+    $("#id_country").change(function () {
+      var url = $("form").attr("data-states-url"); 
+      var countryId = $(this).val();
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-states/)
+        data: {
+          'country': countryId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_state").html(data);  // replace the contents of the states input with the data that came from the server
+        }
+      });
+
+    });
+  	</script>
+{% endblock %}  	

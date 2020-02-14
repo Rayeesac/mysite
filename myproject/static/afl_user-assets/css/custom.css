@@ -11,3 +11,17 @@
 	.quarterCircleBottomLeft{width: 100px;height:100px; }
 	.halfCircleBottom{width: 145px;height: 70px;}
 }
+
+/* recaptcha responsive issues */
+@media only screen and (max-width: 640px) {
+	.g-recaptcha{transform: scale(0.8);margin-left: -28px;}
+}
+@media only screen and (max-width: 480px) {
+	.g-recaptcha{transform: scale(0.9);margin-left:-20px;}
+}
+@media only screen and (max-width: 480px) {
+	.g-recaptcha{transform: scale(0.8);margin-left:-30px;}
+}
+@media only screen and (max-width: 480px) {
+	.g-recaptcha{transform: scale(0.77);margin-left:-30px;}
+}

@@ -1,0 +1,80 @@
+{% load widget_tweaks %}
+
+{% for hidden_field in form.hidden_fields %}
+  {{ hidden_field }}
+{% endfor %}
+
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}
+      {{ error }}
+    {% endfor %}
+  </div>
+{% endif %}
+
+  <div class="form-group">
+    {{ form.user.label_tag}}{{form.user }}
+    {% if form.user.errors %}
+      {{ form.user.errors }}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    <label for="id_first_name">First Name:</label>
+    <input type="text" name="first_name" maxlength="100" value='{{ user.first_name }}' id="id_first_name">
+  </div>
+
+  <div class="form-group">
+    <label for="id_last_name">Last Name:</label>
+    <input type="text" name="last_name" maxlength="100" value='{{ user.last_name }}' id="id_last_name">
+  </div>
+
+  <div class="form-group">
+    <label for="id_email">Email:</label>
+    <input type="text" name="email" maxlength="255" value='{{ user.email }}' id="id_email">
+  </div>
+
+  <div class="form-group">
+    {{ form.img.label_tag }}
+    {{ form.img }}
+    {% if form.img.errors %}
+      {{ form.img.errors }}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{ form.address.label_tag }}
+    {{ form.address }}
+    {% if form.address.errors %}
+      {{ form.address.errors }}
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{ form.country.label_tag }}
+    {{ form.country }}
+    {% if form.country.errors %}
+      {{ form.country.errors }}
+    {% endif %}
+  </div>
+  
+  <div class="form-group">
+    {{ form.state.label_tag }}
+    {% include 'includes/states_dropdown.html' %}
+    {% if form.state.errors %}
+      {{ form.state.errors }}
+    {% endif %}
+  </div>
+  
+  <div class="form-group">
+    <label for="id_pin">Pin Code:</label>
+    <input type="text" name="pin" maxlength="6"  id="id_pin" pattern="^[0-9]{6}$">
+  </div>
+
+  <div class="form-group">
+    {{ form.DOB.label_tag }}
+    {{ form.DOB }}
+    {% if form.DOB.errors %}
+      {{ form.DOB.errors }}
+    {% endif %}
+  </div>
