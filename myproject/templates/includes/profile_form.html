@@ -13,10 +13,8 @@
 {% endif %}
 
   <div class="form-group">
-    {{ form.user.label_tag}}{{form.user }}
-    {% if form.user.errors %}
-      {{ form.user.errors }}
-    {% endif %}
+    <label for="id_user">User:</label>
+    <input type="text" name="user" maxlength="100" value='{{ user.username }}' id="id_user">
   </div>
 
   <div class="form-group">
