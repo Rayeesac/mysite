@@ -1,4 +1,4 @@
-django==2.2.7
+django==2.2.10
 psycopg2-binary==2.8.4
 django-widget-tweaks
 Pillow==7.0.0
