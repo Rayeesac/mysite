@@ -290,12 +290,23 @@ def contactus(request):
 	return render(request, 'watch/contact.html' , {'form':form})  
 
 ############## Edit Profile ########################
-
 class UpdateProfile(View):
-	def post(self,request):
-		form = ProfileForm(request.POST,request.FILES)
+	def get(self,request,*args,**kwargs):
+		initial = {}
+		instance = {}
+		instance = get_object_or_404(Profile, uid=request.user.pk)
+		initial = { 'uid':request.user.id}
+		form = ProfileForm(initial=initial,instance=instance)
+		context ={'form':form}		
+		return render(request, 'user/update_profile.html',context)
+
+	def post(self,request,*args,**kwargs):
+		initial = { 'uid':request.user.id}
+		instance = get_object_or_404(Profile, uid=request.user.pk)
+		form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
 		if form.is_valid():			
 			form.save()
+			User.objects.filter(id=request.user.id).update(first_name=request.POST['first_name'],last_name=request.POST['last_name'])
 			messages.add_message(request,messages.SUCCESS, 'Registered successfully.!')		
 			# auth_login(request,user)
 			return redirect('home')
@@ -304,9 +315,6 @@ class UpdateProfile(View):
 			pp(form.errors)
 			messages.add_message(request,messages.ERROR,"failed")	
 		return render(request, 'user/update_profile.html', {'form':form})			
-	def get(self,request):
-		form = ProfileForm()		
-		return render(request, 'user/update_profile.html', {'form':form})
 
 def load_states(request):
     country_id = request.GET.get('country')

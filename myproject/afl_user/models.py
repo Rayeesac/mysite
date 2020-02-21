@@ -39,7 +39,7 @@ class State(models.Model):
         return self.name
 
 class Profile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	uid = models.IntegerField()
 	img = models.ImageField(upload_to='profile/', null=True, blank=True)
 	address = models.CharField(max_length=500, blank=True)
 	country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
