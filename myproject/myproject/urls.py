@@ -39,7 +39,7 @@ urlpatterns = [
     path('error',views.error_view,name='error_view'),
     path('generic',views.generic,name='generic'),
     path('contactus',views.contactus,name='contactus'),
-    path('update/profile',user_views.UpdateProfile.as_view(),name="UpdateProfile"),
+    path('edit/profile',user_views.EditProfile.as_view(),name="EditProfile"),
     path('ajax/load-states/', views.load_states, name='ajax_load_states'),
 ]
 if settings.DEBUG:

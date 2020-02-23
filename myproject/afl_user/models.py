@@ -38,14 +38,32 @@ class State(models.Model):
     def __str__(self):
         return self.name
 
+# class Profile(models.Model):
+# 	uid = models.IntegerField()
+# 	img = models.ImageField(upload_to='profile/', null=True, blank=True)
+# 	address = models.CharField(max_length=500, blank=True)
+# 	country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
+# 	state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True)
+# 	pin = models.CharField(max_length=6,null=True)
+# 	DOB = models.DateField(null=True)
+	
+# 	class Meta:
+# 		db_table = "Profile"
+
+# 	def __str__(self):
+# 		return self.name
+
 class Profile(models.Model):
 	uid = models.IntegerField()
-	img = models.ImageField(upload_to='profile/', null=True, blank=True)
+	first_name = models.CharField(max_length=255,blank=True)
+	last_name = models.CharField(max_length=255,blank=True)
 	address = models.CharField(max_length=500, blank=True)
+	pin_code = models.CharField(max_length=6,null=True)
+	phone_number = models.CharField(max_length=15)
+	profile_image = models.ImageField(upload_to='profile/', null=True, blank=True)
 	country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
 	state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True)
-	pin = models.CharField(max_length=6,null=True)
-	DOB = models.DateField(null=True)
+	date_of_birth = models.DateField()
 	
 	class Meta:
 		db_table = "Profile"

@@ -290,24 +290,38 @@ def contactus(request):
 	return render(request, 'watch/contact.html' , {'form':form})  
 
 ############## Edit Profile ########################
-class UpdateProfile(View):
+class EditProfile(View):
 	def get(self,request,*args,**kwargs):
 		initial = {}
 		instance = {}
-		instance = get_object_or_404(Profile, uid=request.user.pk)
+
 		initial = { 'uid':request.user.id}
-		form = ProfileForm(initial=initial,instance=instance)
+		if  Profile.objects.filter(uid=request.user.pk).exists():
+			instance = get_object_or_404(Profile, uid=request.user.pk)
+			
+			form = ProfileForm(initial=initial,instance=instance)
+		else:
+			form = ProfileForm(initial=initial)
+		pp("instance")
+		pp(Profile.objects.filter(uid=request.user.pk).exists())
 		context ={'form':form}		
 		return render(request, 'user/update_profile.html',context)
 
 	def post(self,request,*args,**kwargs):
-		initial = { 'uid':request.user.id}
-		instance = get_object_or_404(Profile, uid=request.user.pk)
-		form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
+		initial = {}
+		instance = {}
+		initial = { 'uid':request.user.pk}
+		pp(request.POST)
+		if  Profile.objects.filter(uid=request.user.pk).exists():
+			instance = get_object_or_404(Profile, uid=request.user.pk)
+			form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
+		else:
+			form = ProfileForm(request.POST,request.FILES,initial=initial)
+		# form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
 		if form.is_valid():			
 			form.save()
-			User.objects.filter(id=request.user.id).update(first_name=request.POST['first_name'],last_name=request.POST['last_name'])
-			messages.add_message(request,messages.SUCCESS, 'Registered successfully.!')		
+			# User.objects.filter(id=request.user.id).update(first_name=request.POST['first_name'],last_name=request.POST['last_name'])
+			messages.add_message(request,messages.SUCCESS, 'Updated successfully.!')		
 			# auth_login(request,user)
 			return redirect('home')
 		else:
