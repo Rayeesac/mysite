@@ -1,239 +1,38 @@
 -- Adminer 4.7.3 PostgreSQL dump
 
-\connect "Mysite";
+CREATE TABLE IF NOT EXISTS "public"."newsletter" (
+    "id" integer NOT NULL,
+    "email" character varying(255) NOT NULL,
+    UNIQUE ("email"),
+    PRIMARY KEY ("id")
+) WITH (oids = false);
 
-DROP TABLE IF EXISTS "Contact";
-DROP SEQUENCE IF EXISTS "Contact_id_seq";
-CREATE SEQUENCE "Contact_id_seq" INCREMENT  MINVALUE  MAXVALUE  START 1 CACHE ;
-
-CREATE TABLE "public"."Contact" (
-    "id" integer DEFAULT nextval('"Contact_id_seq"') NOT NULL,
+CREATE TABLE IF NOT EXISTS "public"."Contact" (
+    "id" integer NOT NULL,
     "first_name" character varying(255) NOT NULL,
     "last_name" character varying(255) NOT NULL,
     "email" character varying(255) NOT NULL,
     "phoneno" character varying(12) NOT NULL,
     "msg" character varying(300) NOT NULL,
-    CONSTRAINT "Contact_pkey" PRIMARY KEY ("id")
+    PRIMARY KEY ("id")
 ) WITH (oids = false);
 
-INSERT INTO "Contact" ("id", "first_name", "last_name", "email", "phoneno", "msg") VALUES
-(20,	'Rayees',	'Ac',	'acr9030@gmail.com',	'7902343487',	'test');
-
-DROP TABLE IF EXISTS "Country";
-DROP SEQUENCE IF EXISTS afl_user_country_id_seq;
-CREATE SEQUENCE afl_user_country_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."Country" (
-    "id" integer DEFAULT nextval('afl_user_country_id_seq') NOT NULL,
+CREATE TABLE IF NOT EXISTS "public"."Country" (
+    "id" integer NOT NULL,
     "name" character varying(100) NOT NULL,
-    CONSTRAINT "afl_user_country_pkey" PRIMARY KEY ("id")
+    PRIMARY KEY ("id")
 ) WITH (oids = false);
 
-INSERT INTO "Country" ("id", "name") VALUES
-(1,	'Afghanistan'),
-(2,	'Albania'),
-(3,	'Algeria'),
-(5,	'Andorra'),
-(6,	'Angola'),
-(9,	'Antigua And Barbuda'),
-(10,	'Argentina'),
-(11,	'Armenia'),
-(13,	'Australia'),
-(14,	'Austria'),
-(15,	'Azerbaijan'),
-(16,	'Bahamas The'),
-(17,	'Bahrain'),
-(18,	'Bangladesh'),
-(19,	'Barbados'),
-(20,	'Belarus'),
-(21,	'Belgium'),
-(22,	'Belize'),
-(23,	'Benin'),
-(25,	'Bhutan'),
-(26,	'Bolivia'),
-(27,	'Bosnia and Herzegovina'),
-(28,	'Botswana'),
-(30,	'Brazil'),
-(32,	'Brunei'),
-(33,	'Bulgaria'),
-(34,	'Burkina Faso'),
-(35,	'Burundi'),
-(36,	'Cambodia'),
-(37,	'Cameroon'),
-(38,	'Canada'),
-(39,	'Cape Verde'),
-(41,	'Central African Republic'),
-(42,	'Chad'),
-(43,	'Chile'),
-(44,	'China'),
-(47,	'Colombia'),
-(48,	'Comoros'),
-(49,	'Republic Of The Congo'),
-(50,	'Democratic Republic Of The Congo'),
-(52,	'Costa Rica'),
-(53,	'Cote D Ivoire (Ivory Coast)'),
-(54,	'Croatia (Hrvatska)'),
-(55,	'Cuba'),
-(56,	'Cyprus'),
-(57,	'Czech Republic'),
-(58,	'Denmark'),
-(59,	'Djibouti'),
-(60,	'Dominica'),
-(61,	'Dominican Republic'),
-(63,	'Ecuador'),
-(64,	'Egypt'),
-(65,	'El Salvador'),
-(66,	'Equatorial Guinea'),
-(67,	'Eritrea'),
-(68,	'Estonia'),
-(69,	'Ethiopia'),
-(73,	'Fiji Islands'),
-(74,	'Finland'),
-(75,	'France'),
-(79,	'Gabon'),
-(80,	'Gambia The'),
-(81,	'Georgia'),
-(82,	'Germany'),
-(83,	'Ghana'),
-(85,	'Greece'),
-(86,	'Greenland'),
-(87,	'Grenada'),
-(90,	'Guatemala'),
-(92,	'Guinea'),
-(93,	'Guinea-Bissau'),
-(94,	'Guyana'),
-(95,	'Haiti'),
-(97,	'Honduras'),
-(99,	'Hungary'),
-(100,	'Iceland'),
-(101,	'India'),
-(102,	'Indonesia'),
-(103,	'Iran'),
-(104,	'Iraq'),
-(105,	'Ireland'),
-(106,	'Israel'),
-(107,	'Italy'),
-(108,	'Jamaica'),
-(109,	'Japan'),
-(111,	'Jordan'),
-(112,	'Kazakhstan'),
-(113,	'Kenya'),
-(114,	'Kiribati'),
-(115,	'Korea North'),
-(116,	'Korea South'),
-(117,	'Kuwait'),
-(118,	'Kyrgyzstan'),
-(119,	'Laos'),
-(120,	'Latvia'),
-(121,	'Lebanon'),
-(122,	'Lesotho'),
-(123,	'Liberia'),
-(124,	'Libya'),
-(125,	'Liechtenstein'),
-(126,	'Lithuania'),
-(127,	'Luxembourg'),
-(129,	'Macedonia'),
-(130,	'Madagascar'),
-(131,	'Malawi'),
-(132,	'Malaysia'),
-(133,	'Maldives'),
-(134,	'Mali'),
-(135,	'Malta'),
-(137,	'Marshall Islands'),
-(139,	'Mauritania'),
-(140,	'Mauritius'),
-(142,	'Mexico'),
-(143,	'Micronesia'),
-(144,	'Moldova'),
-(145,	'Monaco'),
-(146,	'Mongolia'),
-(148,	'Morocco'),
-(149,	'Mozambique'),
-(150,	'Myanmar'),
-(151,	'Namibia'),
-(152,	'Nauru'),
-(153,	'Nepal'),
-(155,	'Netherlands The'),
-(157,	'New Zealand'),
-(158,	'Nicaragua'),
-(159,	'Niger'),
-(160,	'Nigeria'),
-(164,	'Norway'),
-(165,	'Oman'),
-(166,	'Pakistan'),
-(167,	'Palau'),
-(168,	'Palestinian Territory Occupied'),
-(169,	'Panama'),
-(170,	'Papua new Guinea'),
-(171,	'Paraguay'),
-(172,	'Peru'),
-(173,	'Philippines'),
-(175,	'Poland'),
-(176,	'Portugal'),
-(178,	'Qatar'),
-(180,	'Romania'),
-(181,	'Russia'),
-(182,	'Rwanda'),
-(183,	'Saint Helena'),
-(184,	'Saint Kitts And Nevis'),
-(185,	'Saint Lucia'),
-(187,	'Saint Vincent And The Grenadines'),
-(188,	'Samoa'),
-(189,	'San Marino'),
-(190,	'Sao Tome and Principe'),
-(191,	'Saudi Arabia'),
-(192,	'Senegal'),
-(193,	'Serbia'),
-(194,	'Seychelles'),
-(195,	'Sierra Leone'),
-(196,	'Singapore'),
-(197,	'Slovakia'),
-(198,	'Slovenia'),
-(200,	'Solomon Islands'),
-(201,	'Somalia'),
-(202,	'South Africa'),
-(204,	'South Sudan'),
-(205,	'Spain'),
-(206,	'Sri Lanka'),
-(207,	'Sudan'),
-(208,	'Suriname'),
-(210,	'Swaziland'),
-(211,	'Sweden'),
-(212,	'Switzerland'),
-(213,	'Syria'),
-(214,	'Taiwan'),
-(215,	'Tajikistan'),
-(216,	'Tanzania'),
-(217,	'Thailand'),
-(218,	'Togo'),
-(220,	'Tonga'),
-(221,	'Trinidad And Tobago'),
-(222,	'Tunisia'),
-(223,	'Turkey'),
-(224,	'Turkmenistan'),
-(226,	'Tuvalu'),
-(227,	'Uganda'),
-(228,	'Ukraine'),
-(229,	'United Arab Emirates'),
-(230,	'United Kingdom'),
-(231,	'United States'),
-(232,	'United States Minor Outlying Islands'),
-(233,	'Uruguay'),
-(234,	'Uzbekistan'),
-(235,	'Vanuatu'),
-(237,	'Venezuela'),
-(238,	'Vietnam'),
-(243,	'Yemen'),
-(245,	'Zambia'),
-(246,	'Zimbabwe'),
-(247,	'Hong Kong');
+CREATE TABLE IF NOT EXISTS "public"."State" (
+    "id" integer NOT NULL,
+    "name" character varying(100) NOT NULL,
+    "country_id" integer NOT NULL,
+    PRIMARY KEY ("id"),
+    FOREIGN KEY (country_id) REFERENCES "Country"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
+) WITH (oids = false);
 
-DROP TABLE IF EXISTS "Profile";
-DROP SEQUENCE IF EXISTS "Profile_id_seq";
-CREATE SEQUENCE "Profile_id_seq" INCREMENT  MINVALUE  MAXVALUE  START 1 CACHE ;
-
-CREATE TABLE "public"."Profile" (
-    "id" integer DEFAULT nextval('"Profile_id_seq"') NOT NULL,
+CREATE TABLE IF NOT EXISTS "public"."Profile" (
+    "id" integer NOT NULL,
     "img" character varying(100),
     "address" character varying(500) NOT NULL,
     "pin" character varying(6),
@@ -241,31 +40,211 @@ CREATE TABLE "public"."Profile" (
     "country_id" integer,
     "state_id" integer,
     "user_id" integer NOT NULL,
-    CONSTRAINT "Profile_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "Profile_user_id_fa0e72a2_uniq" UNIQUE ("user_id"),
-    CONSTRAINT "Profile_country_id_9b3301ba_fk_afl_user_country_id" FOREIGN KEY (country_id) REFERENCES "Country"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "Profile_state_id_871ce36f_fk_afl_user_state_id" FOREIGN KEY (state_id) REFERENCES "State"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "Profile_user_id_fa0e72a2_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
+    PRIMARY KEY ("id"),
+    UNIQUE ("user_id"),
+    FOREIGN KEY (country_id) REFERENCES "Country"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
+    FOREIGN KEY (state_id) REFERENCES "State"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
+    FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
 ) WITH (oids = false);
 
-CREATE INDEX "Profile_country_id_9b3301ba" ON "public"."Profile" USING btree ("country_id");
-
-CREATE INDEX "Profile_state_id_871ce36f" ON "public"."Profile" USING btree ("state_id");
-
-
-DROP TABLE IF EXISTS "State";
-DROP SEQUENCE IF EXISTS afl_user_state_id_seq;
-CREATE SEQUENCE afl_user_state_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."State" (
-    "id" integer DEFAULT nextval('afl_user_state_id_seq') NOT NULL,
-    "name" character varying(100) NOT NULL,
-    "country_id" integer NOT NULL,
-    CONSTRAINT "afl_user_state_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "afl_user_state_country_id_573e4c97_fk_afl_user_country_id" FOREIGN KEY (country_id) REFERENCES "Country"(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "afl_user_state_country_id_573e4c97" ON "public"."State" USING btree ("country_id");
+INSERT INTO "Country" ("id", "name") VALUES
+(1, 'Afghanistan'),
+(2, 'Albania'),
+(3, 'Algeria'),
+(5, 'Andorra'),
+(6, 'Angola'),
+(9, 'Antigua And Barbuda'),
+(10,    'Argentina'),
+(11,    'Armenia'),
+(13,    'Australia'),
+(14,    'Austria'),
+(15,    'Azerbaijan'),
+(16,    'Bahamas The'),
+(17,    'Bahrain'),
+(18,    'Bangladesh'),
+(19,    'Barbados'),
+(20,    'Belarus'),
+(21,    'Belgium'),
+(22,    'Belize'),
+(23,    'Benin'),
+(25,    'Bhutan'),
+(26,    'Bolivia'),
+(27,    'Bosnia and Herzegovina'),
+(28,    'Botswana'),
+(30,    'Brazil'),
+(32,    'Brunei'),
+(33,    'Bulgaria'),
+(34,    'Burkina Faso'),
+(35,    'Burundi'),
+(36,    'Cambodia'),
+(37,    'Cameroon'),
+(38,    'Canada'),
+(39,    'Cape Verde'),
+(41,    'Central African Republic'),
+(42,    'Chad'),
+(43,    'Chile'),
+(44,    'China'),
+(47,    'Colombia'),
+(48,    'Comoros'),
+(49,    'Republic Of The Congo'),
+(50,    'Democratic Republic Of The Congo'),
+(52,    'Costa Rica'),
+(53,    'Cote D Ivoire (Ivory Coast)'),
+(54,    'Croatia (Hrvatska)'),
+(55,    'Cuba'),
+(56,    'Cyprus'),
+(57,    'Czech Republic'),
+(58,    'Denmark'),
+(59,    'Djibouti'),
+(60,    'Dominica'),
+(61,    'Dominican Republic'),
+(63,    'Ecuador'),
+(64,    'Egypt'),
+(65,    'El Salvador'),
+(66,    'Equatorial Guinea'),
+(67,    'Eritrea'),
+(68,    'Estonia'),
+(69,    'Ethiopia'),
+(73,    'Fiji Islands'),
+(74,    'Finland'),
+(75,    'France'),
+(79,    'Gabon'),
+(80,    'Gambia The'),
+(81,    'Georgia'),
+(82,    'Germany'),
+(83,    'Ghana'),
+(85,    'Greece'),
+(86,    'Greenland'),
+(87,    'Grenada'),
+(90,    'Guatemala'),
+(92,    'Guinea'),
+(93,    'Guinea-Bissau'),
+(94,    'Guyana'),
+(95,    'Haiti'),
+(97,    'Honduras'),
+(99,    'Hungary'),
+(100,   'Iceland'),
+(101,   'India'),
+(102,   'Indonesia'),
+(103,   'Iran'),
+(104,   'Iraq'),
+(105,   'Ireland'),
+(106,   'Israel'),
+(107,   'Italy'),
+(108,   'Jamaica'),
+(109,   'Japan'),
+(111,   'Jordan'),
+(112,   'Kazakhstan'),
+(113,   'Kenya'),
+(114,   'Kiribati'),
+(115,   'Korea North'),
+(116,   'Korea South'),
+(117,   'Kuwait'),
+(118,   'Kyrgyzstan'),
+(119,   'Laos'),
+(120,   'Latvia'),
+(121,   'Lebanon'),
+(122,   'Lesotho'),
+(123,   'Liberia'),
+(124,   'Libya'),
+(125,   'Liechtenstein'),
+(126,   'Lithuania'),
+(127,   'Luxembourg'),
+(129,   'Macedonia'),
+(130,   'Madagascar'),
+(131,   'Malawi'),
+(132,   'Malaysia'),
+(133,   'Maldives'),
+(134,   'Mali'),
+(135,   'Malta'),
+(137,   'Marshall Islands'),
+(139,   'Mauritania'),
+(140,   'Mauritius'),
+(142,   'Mexico'),
+(143,   'Micronesia'),
+(144,   'Moldova'),
+(145,   'Monaco'),
+(146,   'Mongolia'),
+(148,   'Morocco'),
+(149,   'Mozambique'),
+(150,   'Myanmar'),
+(151,   'Namibia'),
+(152,   'Nauru'),
+(153,   'Nepal'),
+(155,   'Netherlands The'),
+(157,   'New Zealand'),
+(158,   'Nicaragua'),
+(159,   'Niger'),
+(160,   'Nigeria'),
+(164,   'Norway'),
+(165,   'Oman'),
+(166,   'Pakistan'),
+(167,   'Palau'),
+(168,   'Palestinian Territory Occupied'),
+(169,   'Panama'),
+(170,   'Papua new Guinea'),
+(171,   'Paraguay'),
+(172,   'Peru'),
+(173,   'Philippines'),
+(175,   'Poland'),
+(176,   'Portugal'),
+(178,   'Qatar'),
+(180,   'Romania'),
+(181,   'Russia'),
+(182,   'Rwanda'),
+(183,   'Saint Helena'),
+(184,   'Saint Kitts And Nevis'),
+(185,   'Saint Lucia'),
+(187,   'Saint Vincent And The Grenadines'),
+(188,   'Samoa'),
+(189,   'San Marino'),
+(190,   'Sao Tome and Principe'),
+(191,   'Saudi Arabia'),
+(192,   'Senegal'),
+(193,   'Serbia'),
+(194,   'Seychelles'),
+(195,   'Sierra Leone'),
+(196,   'Singapore'),
+(197,   'Slovakia'),
+(198,   'Slovenia'),
+(200,   'Solomon Islands'),
+(201,   'Somalia'),
+(202,   'South Africa'),
+(204,   'South Sudan'),
+(205,   'Spain'),
+(206,   'Sri Lanka'),
+(207,   'Sudan'),
+(208,   'Suriname'),
+(210,   'Swaziland'),
+(211,   'Sweden'),
+(212,   'Switzerland'),
+(213,   'Syria'),
+(214,   'Taiwan'),
+(215,   'Tajikistan'),
+(216,   'Tanzania'),
+(217,   'Thailand'),
+(218,   'Togo'),
+(220,   'Tonga'),
+(221,   'Trinidad And Tobago'),
+(222,   'Tunisia'),
+(223,   'Turkey'),
+(224,   'Turkmenistan'),
+(226,   'Tuvalu'),
+(227,   'Uganda'),
+(228,   'Ukraine'),
+(229,   'United Arab Emirates'),
+(230,   'United Kingdom'),
+(231,   'United States'),
+(232,   'United States Minor Outlying Islands'),
+(233,   'Uruguay'),
+(234,   'Uzbekistan'),
+(235,   'Vanuatu'),
+(237,   'Venezuela'),
+(238,   'Vietnam'),
+(243,   'Yemen'),
+(245,   'Zambia'),
+(246,   'Zimbabwe'),
+(247,   'Hong Kong');
 
 INSERT INTO "State" ("id", "name", "country_id") VALUES
 (1,	'Badakhshān',	1),
@@ -3986,415 +3965,5 @@ INSERT INTO "State" ("id", "name", "country_id") VALUES
 (3716,	'Hong Kong Island	',	247),
 (3717,	'Kowloon	',	247),
 (3718,	'New Territories	',	247);
-
-DROP TABLE IF EXISTS "auth_group";
-DROP SEQUENCE IF EXISTS auth_group_id_seq;
-CREATE SEQUENCE auth_group_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_group" (
-    "id" integer DEFAULT nextval('auth_group_id_seq') NOT NULL,
-    "name" character varying(150) NOT NULL,
-    CONSTRAINT "auth_group_name_key" UNIQUE ("name"),
-    CONSTRAINT "auth_group_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-CREATE INDEX "auth_group_name_a6ea08ec_like" ON "public"."auth_group" USING btree ("name");
-
-
-DROP TABLE IF EXISTS "auth_group_permissions";
-DROP SEQUENCE IF EXISTS auth_group_permissions_id_seq;
-CREATE SEQUENCE auth_group_permissions_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_group_permissions" (
-    "id" integer DEFAULT nextval('auth_group_permissions_id_seq') NOT NULL,
-    "group_id" integer NOT NULL,
-    "permission_id" integer NOT NULL,
-    CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"),
-    CONSTRAINT "auth_group_permissions_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY (permission_id) REFERENCES auth_permission(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY (group_id) REFERENCES auth_group(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "public"."auth_group_permissions" USING btree ("group_id");
-
-CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "public"."auth_group_permissions" USING btree ("permission_id");
-
-
-DROP TABLE IF EXISTS "auth_permission";
-DROP SEQUENCE IF EXISTS auth_permission_id_seq;
-CREATE SEQUENCE auth_permission_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_permission" (
-    "id" integer DEFAULT nextval('auth_permission_id_seq') NOT NULL,
-    "name" character varying(255) NOT NULL,
-    "content_type_id" integer NOT NULL,
-    "codename" character varying(100) NOT NULL,
-    CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"),
-    CONSTRAINT "auth_permission_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY (content_type_id) REFERENCES django_content_type(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "public"."auth_permission" USING btree ("content_type_id");
-
-INSERT INTO "auth_permission" ("id", "name", "content_type_id", "codename") VALUES
-(1,	'Can add log entry',	1,	'add_logentry'),
-(2,	'Can change log entry',	1,	'change_logentry'),
-(3,	'Can delete log entry',	1,	'delete_logentry'),
-(4,	'Can view log entry',	1,	'view_logentry'),
-(5,	'Can add permission',	2,	'add_permission'),
-(6,	'Can change permission',	2,	'change_permission'),
-(7,	'Can delete permission',	2,	'delete_permission'),
-(8,	'Can view permission',	2,	'view_permission'),
-(9,	'Can add group',	3,	'add_group'),
-(10,	'Can change group',	3,	'change_group'),
-(11,	'Can delete group',	3,	'delete_group'),
-(12,	'Can view group',	3,	'view_group'),
-(13,	'Can add user',	4,	'add_user'),
-(14,	'Can change user',	4,	'change_user'),
-(15,	'Can delete user',	4,	'delete_user'),
-(16,	'Can view user',	4,	'view_user'),
-(17,	'Can add content type',	5,	'add_contenttype'),
-(18,	'Can change content type',	5,	'change_contenttype'),
-(19,	'Can delete content type',	5,	'delete_contenttype'),
-(20,	'Can view content type',	5,	'view_contenttype'),
-(21,	'Can add session',	6,	'add_session'),
-(22,	'Can change session',	6,	'change_session'),
-(23,	'Can delete session',	6,	'delete_session'),
-(24,	'Can view session',	6,	'view_session'),
-(25,	'Can add newsletter',	7,	'add_newsletter'),
-(26,	'Can change newsletter',	7,	'change_newsletter'),
-(27,	'Can delete newsletter',	7,	'delete_newsletter'),
-(28,	'Can view newsletter',	7,	'view_newsletter'),
-(29,	'Can add contact',	8,	'add_contact'),
-(30,	'Can change contact',	8,	'change_contact'),
-(31,	'Can delete contact',	8,	'delete_contact'),
-(32,	'Can view contact',	8,	'view_contact'),
-(33,	'Can add profile',	9,	'add_profile'),
-(34,	'Can change profile',	9,	'change_profile'),
-(35,	'Can delete profile',	9,	'delete_profile'),
-(36,	'Can view profile',	9,	'view_profile'),
-(37,	'Can add association',	10,	'add_association'),
-(38,	'Can change association',	10,	'change_association'),
-(39,	'Can delete association',	10,	'delete_association'),
-(40,	'Can view association',	10,	'view_association'),
-(41,	'Can add code',	11,	'add_code'),
-(42,	'Can change code',	11,	'change_code'),
-(43,	'Can delete code',	11,	'delete_code'),
-(44,	'Can view code',	11,	'view_code'),
-(45,	'Can add nonce',	12,	'add_nonce'),
-(46,	'Can change nonce',	12,	'change_nonce'),
-(47,	'Can delete nonce',	12,	'delete_nonce'),
-(48,	'Can view nonce',	12,	'view_nonce'),
-(49,	'Can add user social auth',	13,	'add_usersocialauth'),
-(50,	'Can change user social auth',	13,	'change_usersocialauth'),
-(51,	'Can delete user social auth',	13,	'delete_usersocialauth'),
-(52,	'Can view user social auth',	13,	'view_usersocialauth'),
-(53,	'Can add partial',	14,	'add_partial'),
-(54,	'Can change partial',	14,	'change_partial'),
-(55,	'Can delete partial',	14,	'delete_partial'),
-(56,	'Can view partial',	14,	'view_partial'),
-(57,	'Can add country',	15,	'add_country'),
-(58,	'Can change country',	15,	'change_country'),
-(59,	'Can delete country',	15,	'delete_country'),
-(60,	'Can view country',	15,	'view_country'),
-(61,	'Can add state',	16,	'add_state'),
-(62,	'Can change state',	16,	'change_state'),
-(63,	'Can delete state',	16,	'delete_state'),
-(64,	'Can view state',	16,	'view_state');
-
-DROP TABLE IF EXISTS "auth_user";
-DROP SEQUENCE IF EXISTS auth_user_id_seq;
-CREATE SEQUENCE auth_user_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_user" (
-    "id" integer DEFAULT nextval('auth_user_id_seq') NOT NULL,
-    "password" character varying(128) NOT NULL,
-    "last_login" timestamptz,
-    "is_superuser" boolean NOT NULL,
-    "username" character varying(150) NOT NULL,
-    "first_name" character varying(30) NOT NULL,
-    "last_name" character varying(150) NOT NULL,
-    "email" character varying(254) NOT NULL,
-    "is_staff" boolean NOT NULL,
-    "is_active" boolean NOT NULL,
-    "date_joined" timestamptz NOT NULL,
-    CONSTRAINT "auth_user_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "auth_user_username_key" UNIQUE ("username")
-) WITH (oids = false);
-
-CREATE INDEX "auth_user_username_6821ab7c_like" ON "public"."auth_user" USING btree ("username");
-
-INSERT INTO "auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES
-(12,	'pbkdf2_sha256$150000$UKrzBhzmHYYf$IU0ZJHHu67RNPia+ZPfPlP/j5zyc+XYVhyLb53e8FJM=',	'2020-02-14 10:18:37.390977+05:30',	'f',	'Rayees',	'Rayees',	'Ac',	'acr9030@gmail.com',	'f',	't',	'2020-02-14 10:18:37.220747+05:30');
-
-DROP TABLE IF EXISTS "auth_user_groups";
-DROP SEQUENCE IF EXISTS auth_user_groups_id_seq;
-CREATE SEQUENCE auth_user_groups_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_user_groups" (
-    "id" integer DEFAULT nextval('auth_user_groups_id_seq') NOT NULL,
-    "user_id" integer NOT NULL,
-    "group_id" integer NOT NULL,
-    CONSTRAINT "auth_user_groups_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"),
-    CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY (group_id) REFERENCES auth_group(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "auth_user_groups_group_id_97559544" ON "public"."auth_user_groups" USING btree ("group_id");
-
-CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "public"."auth_user_groups" USING btree ("user_id");
-
-
-DROP TABLE IF EXISTS "auth_user_user_permissions";
-DROP SEQUENCE IF EXISTS auth_user_user_permissions_id_seq;
-CREATE SEQUENCE auth_user_user_permissions_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."auth_user_user_permissions" (
-    "id" integer DEFAULT nextval('auth_user_user_permissions_id_seq') NOT NULL,
-    "user_id" integer NOT NULL,
-    "permission_id" integer NOT NULL,
-    CONSTRAINT "auth_user_user_permissions_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"),
-    CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY (permission_id) REFERENCES auth_permission(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "public"."auth_user_user_permissions" USING btree ("permission_id");
-
-CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "public"."auth_user_user_permissions" USING btree ("user_id");
-
-
-DROP TABLE IF EXISTS "django_admin_log";
-DROP SEQUENCE IF EXISTS django_admin_log_id_seq;
-CREATE SEQUENCE django_admin_log_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."django_admin_log" (
-    "id" integer DEFAULT nextval('django_admin_log_id_seq') NOT NULL,
-    "action_time" timestamptz NOT NULL,
-    "object_id" text,
-    "object_repr" character varying(200) NOT NULL,
-    "action_flag" smallint NOT NULL,
-    "change_message" text NOT NULL,
-    "content_type_id" integer,
-    "user_id" integer NOT NULL,
-    CONSTRAINT "django_admin_log_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY (content_type_id) REFERENCES django_content_type(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE,
-    CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "public"."django_admin_log" USING btree ("content_type_id");
-
-CREATE INDEX "django_admin_log_user_id_c564eba6" ON "public"."django_admin_log" USING btree ("user_id");
-
-
-DROP TABLE IF EXISTS "django_content_type";
-DROP SEQUENCE IF EXISTS django_content_type_id_seq;
-CREATE SEQUENCE django_content_type_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."django_content_type" (
-    "id" integer DEFAULT nextval('django_content_type_id_seq') NOT NULL,
-    "app_label" character varying(100) NOT NULL,
-    "model" character varying(100) NOT NULL,
-    CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"),
-    CONSTRAINT "django_content_type_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-INSERT INTO "django_content_type" ("id", "app_label", "model") VALUES
-(1,	'admin',	'logentry'),
-(2,	'auth',	'permission'),
-(3,	'auth',	'group'),
-(4,	'auth',	'user'),
-(5,	'contenttypes',	'contenttype'),
-(6,	'sessions',	'session'),
-(7,	'afl_user',	'newsletter'),
-(8,	'afl_user',	'contact'),
-(9,	'afl_user',	'profile'),
-(10,	'social_django',	'association'),
-(11,	'social_django',	'code'),
-(12,	'social_django',	'nonce'),
-(13,	'social_django',	'usersocialauth'),
-(14,	'social_django',	'partial'),
-(15,	'afl_user',	'country'),
-(16,	'afl_user',	'state');
-
-DROP TABLE IF EXISTS "django_migrations";
-DROP SEQUENCE IF EXISTS django_migrations_id_seq;
-CREATE SEQUENCE django_migrations_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."django_migrations" (
-    "id" integer DEFAULT nextval('django_migrations_id_seq') NOT NULL,
-    "app" character varying(255) NOT NULL,
-    "name" character varying(255) NOT NULL,
-    "applied" timestamptz NOT NULL,
-    CONSTRAINT "django_migrations_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-INSERT INTO "django_migrations" ("id", "app", "name", "applied") VALUES
-(1,	'contenttypes',	'0001_initial',	'2020-01-31 09:23:54.087358+05:30'),
-(2,	'auth',	'0001_initial',	'2020-01-31 09:23:54.632337+05:30'),
-(3,	'admin',	'0001_initial',	'2020-01-31 09:23:55.560478+05:30'),
-(4,	'admin',	'0002_logentry_remove_auto_add',	'2020-01-31 09:23:55.710601+05:30'),
-(5,	'admin',	'0003_logentry_add_action_flag_choices',	'2020-01-31 09:23:55.7209+05:30'),
-(6,	'contenttypes',	'0002_remove_content_type_name',	'2020-01-31 09:23:55.736097+05:30'),
-(7,	'auth',	'0002_alter_permission_name_max_length',	'2020-01-31 09:23:55.74325+05:30'),
-(8,	'auth',	'0003_alter_user_email_max_length',	'2020-01-31 09:23:55.754083+05:30'),
-(9,	'auth',	'0004_alter_user_username_opts',	'2020-01-31 09:23:55.775512+05:30'),
-(10,	'auth',	'0005_alter_user_last_login_null',	'2020-01-31 09:23:55.793355+05:30'),
-(11,	'auth',	'0006_require_contenttypes_0002',	'2020-01-31 09:23:55.800183+05:30'),
-(12,	'auth',	'0007_alter_validators_add_error_messages',	'2020-01-31 09:23:55.816685+05:30'),
-(13,	'auth',	'0008_alter_user_username_max_length',	'2020-01-31 09:23:55.877462+05:30'),
-(14,	'auth',	'0009_alter_user_last_name_max_length',	'2020-01-31 09:23:55.919462+05:30'),
-(15,	'auth',	'0010_alter_group_name_max_length',	'2020-01-31 09:23:55.946301+05:30'),
-(16,	'auth',	'0011_update_proxy_permissions',	'2020-01-31 09:23:55.965943+05:30'),
-(17,	'sessions',	'0001_initial',	'2020-01-31 09:23:56.060998+05:30'),
-(18,	'afl_user',	'0001_initial',	'2020-02-11 09:27:39.758472+05:30'),
-(19,	'afl_user',	'0002_auto_20200211_0522',	'2020-02-11 10:52:48.473352+05:30'),
-(20,	'afl_user',	'0003_auto_20200211_0744',	'2020-02-11 13:14:25.793646+05:30'),
-(21,	'afl_user',	'0004_contact',	'2020-02-13 10:06:30.369286+05:30'),
-(22,	'afl_user',	'0005_auto_20200213_0453',	'2020-02-13 10:23:36.1239+05:30'),
-(23,	'afl_user',	'0006_auto_20200213_0455',	'2020-02-13 10:25:15.553728+05:30'),
-(25,	'default',	'0001_initial',	'2020-02-13 19:51:35.878338+05:30'),
-(26,	'social_auth',	'0001_initial',	'2020-02-13 19:51:35.881475+05:30'),
-(27,	'default',	'0002_add_related_name',	'2020-02-13 19:51:36.081821+05:30'),
-(28,	'social_auth',	'0002_add_related_name',	'2020-02-13 19:51:36.083668+05:30'),
-(29,	'default',	'0003_alter_email_max_length',	'2020-02-13 19:51:36.100674+05:30'),
-(30,	'social_auth',	'0003_alter_email_max_length',	'2020-02-13 19:51:36.10452+05:30'),
-(31,	'default',	'0004_auto_20160423_0400',	'2020-02-13 19:51:36.142252+05:30'),
-(32,	'social_auth',	'0004_auto_20160423_0400',	'2020-02-13 19:51:36.14402+05:30'),
-(33,	'social_auth',	'0005_auto_20160727_2333',	'2020-02-13 19:51:36.221047+05:30'),
-(34,	'social_django',	'0006_partial',	'2020-02-13 19:51:36.396895+05:30'),
-(35,	'social_django',	'0007_code_timestamp',	'2020-02-13 19:51:36.795016+05:30'),
-(36,	'social_django',	'0008_partial_timestamp',	'2020-02-13 19:51:37.101265+05:30'),
-(37,	'social_django',	'0005_auto_20160727_2333',	'2020-02-13 19:51:37.206151+05:30'),
-(38,	'social_django',	'0001_initial',	'2020-02-13 19:51:37.2184+05:30'),
-(39,	'social_django',	'0002_add_related_name',	'2020-02-13 19:51:37.226725+05:30'),
-(40,	'social_django',	'0003_alter_email_max_length',	'2020-02-13 19:51:37.23555+05:30'),
-(41,	'social_django',	'0004_auto_20160423_0400',	'2020-02-13 19:51:37.243713+05:30'),
-(42,	'afl_user',	'0006_auto_20200214_0432',	'2020-02-14 10:02:46.622825+05:30'),
-(43,	'afl_user',	'0007_auto_20200214_0513',	'2020-02-14 10:43:12.294915+05:30'),
-(44,	'afl_user',	'0008_auto_20200214_0642',	'2020-02-14 12:12:31.664343+05:30'),
-(45,	'afl_user',	'0009_auto_20200214_0712',	'2020-02-14 12:42:27.788174+05:30');
-
-DROP TABLE IF EXISTS "django_session";
-CREATE TABLE "public"."django_session" (
-    "session_key" character varying(40) NOT NULL,
-    "session_data" text NOT NULL,
-    "expire_date" timestamptz NOT NULL,
-    CONSTRAINT "django_session_pkey" PRIMARY KEY ("session_key")
-) WITH (oids = false);
-
-CREATE INDEX "django_session_expire_date_a5c62663" ON "public"."django_session" USING btree ("expire_date");
-
-CREATE INDEX "django_session_session_key_c0390e0f_like" ON "public"."django_session" USING btree ("session_key");
-
-INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES
-('cujzu116xdtcln5tsi2crumquduk5iig',	'MGMzZmJiYzlhYzg5NTczNjkxNWY3YTVjNzJhMzJkYWQyMDZkMzQ4MDp7Il9wYXNzd29yZF9yZXNldF90b2tlbiI6IjVkdi01Y2JlYzA2Y2EyMTEzM2RjYTliYiJ9',	'2020-02-24 10:19:38.160863+05:30'),
-('yuvatweyisgnoabqnfr25e1u7rwnptg8',	'YTA0NTBkZDYwNzYwMmNkZmY4YTAyZDE1YWRiZTFjNTU1YWEyOTZhOTp7Il9hdXRoX3VzZXJfaWQiOiIxMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZmYzNjc0YTYwNGRlNzQ3ZTBmOGZlZWU4ZDkzNjVjZWQyZGI2YTNjNiJ9',	'2020-02-28 12:22:15.451188+05:30');
-
-DROP TABLE IF EXISTS "newsletter";
-DROP SEQUENCE IF EXISTS afl_user_newsletter_id_seq;
-CREATE SEQUENCE afl_user_newsletter_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."newsletter" (
-    "id" integer DEFAULT nextval('afl_user_newsletter_id_seq') NOT NULL,
-    "email" character varying(255) NOT NULL,
-    CONSTRAINT "afl_user_newsletter_email_fb5cef3a_uniq" UNIQUE ("email"),
-    CONSTRAINT "afl_user_newsletter_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-CREATE INDEX "afl_user_newsletter_email_fb5cef3a_like" ON "public"."newsletter" USING btree ("email");
-
-
-DROP TABLE IF EXISTS "social_auth_association";
-DROP SEQUENCE IF EXISTS social_auth_association_id_seq;
-CREATE SEQUENCE social_auth_association_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."social_auth_association" (
-    "id" integer DEFAULT nextval('social_auth_association_id_seq') NOT NULL,
-    "server_url" character varying(255) NOT NULL,
-    "handle" character varying(255) NOT NULL,
-    "secret" character varying(255) NOT NULL,
-    "issued" integer NOT NULL,
-    "lifetime" integer NOT NULL,
-    "assoc_type" character varying(64) NOT NULL,
-    CONSTRAINT "social_auth_association_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "social_auth_association_server_url_handle_078befa2_uniq" UNIQUE ("server_url", "handle")
-) WITH (oids = false);
-
-
-DROP TABLE IF EXISTS "social_auth_code";
-DROP SEQUENCE IF EXISTS social_auth_code_id_seq;
-CREATE SEQUENCE social_auth_code_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."social_auth_code" (
-    "id" integer DEFAULT nextval('social_auth_code_id_seq') NOT NULL,
-    "email" character varying(254) NOT NULL,
-    "code" character varying(32) NOT NULL,
-    "verified" boolean NOT NULL,
-    "timestamp" timestamptz NOT NULL,
-    CONSTRAINT "social_auth_code_email_code_801b2d02_uniq" UNIQUE ("email", "code"),
-    CONSTRAINT "social_auth_code_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-CREATE INDEX "social_auth_code_code_a2393167" ON "public"."social_auth_code" USING btree ("code");
-
-CREATE INDEX "social_auth_code_code_a2393167_like" ON "public"."social_auth_code" USING btree ("code");
-
-CREATE INDEX "social_auth_code_timestamp_176b341f" ON "public"."social_auth_code" USING btree ("timestamp");
-
-
-DROP TABLE IF EXISTS "social_auth_nonce";
-DROP SEQUENCE IF EXISTS social_auth_nonce_id_seq;
-CREATE SEQUENCE social_auth_nonce_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."social_auth_nonce" (
-    "id" integer DEFAULT nextval('social_auth_nonce_id_seq') NOT NULL,
-    "server_url" character varying(255) NOT NULL,
-    "timestamp" integer NOT NULL,
-    "salt" character varying(65) NOT NULL,
-    CONSTRAINT "social_auth_nonce_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "social_auth_nonce_server_url_timestamp_salt_f6284463_uniq" UNIQUE ("server_url", "timestamp", "salt")
-) WITH (oids = false);
-
-
-DROP TABLE IF EXISTS "social_auth_partial";
-DROP SEQUENCE IF EXISTS social_auth_partial_id_seq;
-CREATE SEQUENCE social_auth_partial_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."social_auth_partial" (
-    "id" integer DEFAULT nextval('social_auth_partial_id_seq') NOT NULL,
-    "token" character varying(32) NOT NULL,
-    "next_step" smallint NOT NULL,
-    "backend" character varying(32) NOT NULL,
-    "data" text NOT NULL,
-    "timestamp" timestamptz NOT NULL,
-    CONSTRAINT "social_auth_partial_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-CREATE INDEX "social_auth_partial_timestamp_50f2119f" ON "public"."social_auth_partial" USING btree ("timestamp");
-
-CREATE INDEX "social_auth_partial_token_3017fea3" ON "public"."social_auth_partial" USING btree ("token");
-
-CREATE INDEX "social_auth_partial_token_3017fea3_like" ON "public"."social_auth_partial" USING btree ("token");
-
-
-DROP TABLE IF EXISTS "social_auth_usersocialauth";
-DROP SEQUENCE IF EXISTS social_auth_usersocialauth_id_seq;
-CREATE SEQUENCE social_auth_usersocialauth_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."social_auth_usersocialauth" (
-    "id" integer DEFAULT nextval('social_auth_usersocialauth_id_seq') NOT NULL,
-    "provider" character varying(32) NOT NULL,
-    "uid" character varying(255) NOT NULL,
-    "extra_data" text NOT NULL,
-    "user_id" integer NOT NULL,
-    CONSTRAINT "social_auth_usersocialauth_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "social_auth_usersocialauth_provider_uid_e6b5e668_uniq" UNIQUE ("provider", "uid"),
-    CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id" FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED DEFERRABLE
-) WITH (oids = false);
-
-CREATE INDEX "social_auth_usersocialauth_user_id_17d28448" ON "public"."social_auth_usersocialauth" USING btree ("user_id");
-
 
 -- 2020-02-18 19:13:12.230573+05:30
