@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from afl_user import views
+from afl_common import views as afl_common
 from afl_user import views as user_views
 from django.contrib.auth import views as auth_views
 
@@ -36,10 +37,11 @@ urlpatterns = [
     path('settings/password/', user_views.password_change,name='password_change'),
 	path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='user/password_change_done.html'),name='password_change_done'),
 	path('settings/account/', user_views.UserUpdateView.as_view(), name='my_account'),
-    path('error',views.error_view,name='error_view'),
-    path('generic',views.generic,name='generic'),
-    path('contactus',views.contactus,name='contactus'),
     path('edit/profile',user_views.EditProfile.as_view(),name="EditProfile"),
+
+    path('error',afl_common.error_view,name='error_view'),
+    path('generic',afl_common.generic,name='generic'),
+    path('contactus',views.contactus,name='contactus'),
     path('ajax/load-states/', views.load_states, name='ajax_load_states'),
 ]
 if settings.DEBUG:

@@ -216,24 +216,29 @@ class ProfileForm(forms.ModelForm):
 		'ZA': r'^[0-9]{4}$',
 		'ZM': r'^[0-9]{5}$',
 		}
-	# country = forms.ModelChoiceField(queryset = Country.objects.all())
+
+	def get_country(self):
+		choices = list(Country.objects.values_list('id','name'))
+		choices[0]=(0,'Please select Country')
+		return choices
+
+	def get_state(self):
+		choices = list(State.objects.values_list('id','name'))
+		choices[0]=(0,'Please select State')
+		return choices
+
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
-		
-		fields_key_order = ['uid','first_name','last_name','address','pin_code','phone_number','country','state','date_of_birth']
-		# self.fields['uid'].widgets = forms.HiddenInput()
+		self.fields["country"] = forms.TypedChoiceField(choices=self.get_country())
+		self.fields["state"] = forms.TypedChoiceField(choices=self.get_state())
+		fields_key_order = ['uid','address','pin_code','phone_number','country','state','date_of_birth']
 
 		if 'keyOrder' in self.fields:
 			self.fields.keyOrder = fields_key_order
 		else:
 			self.fields = OrderedDict((k, self.fields[k]) for k in fields_key_order)
-	# def save(self, *args, **kwargs):
-		# country_name = self.cleaned_data['country']
-
-		# pp(country_id)
-		# state = forms.ModelChoiceField(queryset = State.objects.filter(country_id=Country.objects.get(name=country_name).values())
 
 	class Meta:
 		model = Profile
-		fields = "__all__"
+		fields = ('address','pin_code','phone_number','profile_image','country','state','date_of_birth')
 		widgets = { 'date_of_birth': DateInput(),}

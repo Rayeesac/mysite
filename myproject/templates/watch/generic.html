@@ -6,6 +6,11 @@
 <p class="text-white">It won’t be a bigger problem to find one video game lover in your <br> neighbor. Since the introduction of Virtual Game.</p>
 {% endblock %}
 
+{% block breadcrumb %}
+	<a href="{% url 'home' %}" class="mr-1 text-decoration-none text-warning">Home </a>
+	<span class="text-white">/ Generic Page</span>
+{% endblock breadcrumb %}
+
 {% block content %}	
 
 <div class="main-wrapper">
@@ -92,4 +97,4 @@
 
 </div>
 
-{% endblock %}
+{% endblock %}	

@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'afl_user',
+    'afl_common',
 ]
 
 MIDDLEWARE = [

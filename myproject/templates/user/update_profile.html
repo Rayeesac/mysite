@@ -43,20 +43,25 @@
 {% block javascript %}
 <script type="text/javascript">
 	$( document ).ready(function() {
+	    load_state();
 	    $("#id_country").change(function () {
-	      var url = $("form").attr("data-states-url"); 
-	      var countryId = $(this).val();
-	      $.ajax({ 
-	        url: url,  
-	        data: {
-	          'country': countryId 
-	        },
-	        success: function (data) {  
-	          $("#id_state").html(data);
-	        }
-	      });
-
+	    	load_state();
 	    });
 	});
+    function load_state(){
+      var url = $("form").attr("data-states-url");
+      // alert(url); 
+      // alert(id_country); 
+      var countryId = $('#id_country').val();
+      $.ajax({ 
+        url: url,  
+        data: {
+          'country': countryId 
+        },
+        success: function (data) {  
+          $("#id_state").html(data);
+        }
+      });
+    }
 </script>
 {% endblock %}  	

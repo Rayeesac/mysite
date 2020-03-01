@@ -42,21 +42,10 @@ import urllib
 from .models import Profile,State,Country
 from .forms import ProfileForm
 
-########### Print Function ###############
-
-from django.conf import settings
-import builtins
-from pprint import pprint
-def pp(*args):
-	if settings.DEBUG:
-		for arg in args:
-			pprint(arg)
-		pass
-builtins.pp = pp 
-
-#####################################
+from afl_common.utilities import *
 
 def home(request):
+	# pp("hai")
 	html_message = 'watch/news_letter_email.html'
 	if request.method == 'POST':
 		news = NewsLetterForm(request.POST)
@@ -246,16 +235,6 @@ def password_change(request):
 
 	return render(request, 'user/password_change.html', {'form':form})
 
-################# Error Page ######################
-
-def error_view(request):
-	return render(request,'includes/404.html',status=404)
-
-################# Generic page ###################
-
-def generic(request):
-	return render(request,'watch/generic.html')	
-
 ################ contact us ###################
 
 def contactus(request):
@@ -294,16 +273,20 @@ class EditProfile(View):
 	def get(self,request,*args,**kwargs):
 		initial = {}
 		instance = {}
-
+		# pp(request.GET)
+		# initial = { 'uid':request.user.id}
 		initial = { 'uid':request.user.id}
 		if  Profile.objects.filter(uid=request.user.pk).exists():
 			instance = get_object_or_404(Profile, uid=request.user.pk)
-			
+			# instance = Profile.objects.filter(uid=request.user.pk).values()
+			# pp("instance")
+			# pp(instance)
+			# pp(Profile.objects.filter(uid=request.user.pk).values())
 			form = ProfileForm(initial=initial,instance=instance)
 		else:
 			form = ProfileForm(initial=initial)
-		pp("instance")
-		pp(Profile.objects.filter(uid=request.user.pk).exists())
+		# pp("instance")
+		# pp(Profile.objects.filter(uid=request.user.pk).exists())
 		context ={'form':form}		
 		return render(request, 'user/update_profile.html',context)
 
@@ -317,12 +300,9 @@ class EditProfile(View):
 			form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
 		else:
 			form = ProfileForm(request.POST,request.FILES,initial=initial)
-		# form = ProfileForm(request.POST,request.FILES,initial=initial,instance=instance)
 		if form.is_valid():			
 			form.save()
-			# User.objects.filter(id=request.user.id).update(first_name=request.POST['first_name'],last_name=request.POST['last_name'])
 			messages.add_message(request,messages.SUCCESS, 'Updated successfully.!')		
-			# auth_login(request,user)
 			return redirect('home')
 		else:
 			pp("form.errors")
@@ -333,4 +313,4 @@ class EditProfile(View):
 def load_states(request):
     country_id = request.GET.get('country')
     states = State.objects.filter(country_id=country_id).order_by('name')
-    return render(request, 'includes/states_dropdown.html', {'states': states})
+    return render(request, 'includes/states_dropdown.html', {'states': states})	
